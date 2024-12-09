@@ -1,4 +1,5 @@
 using System;
+using BookHub;
 using Microsoft.Data.SqlClient;
 
 #region Teste da conexao com BD
@@ -23,3 +24,21 @@ using Microsoft.Data.SqlClient;
 //    }
 //}
 #endregion
+
+
+namespace BookHub
+{
+    static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            Application.Run(new TelaInicial());
+           
+
+        }
+    }
+}
