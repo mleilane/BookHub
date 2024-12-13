@@ -54,18 +54,20 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Arial", 9F, FontStyle.Bold);
             label2.Location = new Point(88, 298);
             label2.Name = "label2";
-            label2.Size = new Size(49, 20);
+            label2.Size = new Size(53, 18);
             label2.TabIndex = 8;
             label2.Text = "Senha";
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Arial", 9F, FontStyle.Bold);
             label1.Location = new Point(91, 232);
             label1.Name = "label1";
-            label1.Size = new Size(46, 20);
+            label1.Size = new Size(48, 18);
             label1.TabIndex = 7;
             label1.Text = "Login";
             // 
@@ -87,9 +89,10 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Arial", 9F, FontStyle.Bold);
             label3.Location = new Point(91, 165);
             label3.Name = "label3";
-            label3.Size = new Size(50, 20);
+            label3.Size = new Size(49, 18);
             label3.TabIndex = 11;
             label3.Text = "Nome";
             // 
@@ -103,7 +106,7 @@
             // btnEntrar
             // 
             btnEntrar.BackColor = Color.MediumSeaGreen;
-            btnEntrar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEntrar.Font = new Font("Arial", 9F, FontStyle.Bold);
             btnEntrar.ForeColor = SystemColors.Control;
             btnEntrar.Location = new Point(91, 380);
             btnEntrar.Name = "btnEntrar";
@@ -115,7 +118,7 @@
             // button1
             // 
             button1.BackColor = Color.Crimson;
-            button1.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Arial", 9F, FontStyle.Bold);
             button1.ForeColor = SystemColors.Control;
             button1.Location = new Point(259, 380);
             button1.Name = "button1";
@@ -139,9 +142,10 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Cadastro";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastro";
+            Text = "Cadastro de usuário";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -56,18 +56,20 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(57, 181);
             label1.Name = "label1";
-            label1.Size = new Size(46, 20);
+            label1.Size = new Size(48, 18);
             label1.TabIndex = 2;
             label1.Text = "Login";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(54, 263);
             label2.Name = "label2";
-            label2.Size = new Size(49, 20);
+            label2.Size = new Size(53, 18);
             label2.TabIndex = 3;
             label2.Text = "Senha";
             // 
@@ -84,7 +86,7 @@
             // btnEntrar
             // 
             btnEntrar.BackColor = Color.MediumSeaGreen;
-            btnEntrar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEntrar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEntrar.ForeColor = SystemColors.Control;
             btnEntrar.Location = new Point(136, 336);
             btnEntrar.Name = "btnEntrar";
@@ -92,6 +94,7 @@
             btnEntrar.TabIndex = 13;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // Login
             // 

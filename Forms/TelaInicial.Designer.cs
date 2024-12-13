@@ -96,6 +96,7 @@
             Controls.Add(btnCadastrar);
             Controls.Add(imgCapa);
             Controls.Add(lblTitulo);
+            MaximizeBox = false;
             Name = "TelaInicial";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "BookHub";

@@ -1,5 +1,6 @@
 using System;
 using BookHub;
+using BookHub.Forms;
 using Microsoft.Data.SqlClient;
 
 #region Teste da conexao com BD
@@ -37,8 +38,9 @@ namespace BookHub
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new TelaInicial());
-           
 
+           
         }
+
     }
 }

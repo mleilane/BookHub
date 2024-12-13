@@ -17,6 +17,10 @@ namespace BookHub.Forms
             InitializeComponent();
         }
 
-       
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            // Abrir a tela TodosLivros
+            TodosLivros telaTodosLivros = new TodosLivros(); telaTodosLivros.Show();
+        }
     }
 }
