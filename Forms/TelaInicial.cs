@@ -28,5 +28,10 @@ namespace BookHub
             //abre o form login como uma janela modal 
             cadastroForm.ShowDialog();
         }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
