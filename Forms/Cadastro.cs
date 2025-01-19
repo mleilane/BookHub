@@ -16,5 +16,10 @@ namespace BookHub.Forms
         {
             InitializeComponent();
         }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

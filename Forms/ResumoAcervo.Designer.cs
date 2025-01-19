@@ -31,101 +31,113 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResumoAcervo));
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
+            lblTitulo = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            lblLidos = new Label();
+            lblNaoLidos = new Label();
+            lblTotalAcervo = new Label();
             dataGridView1 = new DataGridView();
             Título = new DataGridViewTextBoxColumn();
             Autor = new DataGridViewTextBoxColumn();
             ISBN = new DataGridViewTextBoxColumn();
             Lido = new DataGridViewTextBoxColumn();
-            groupBox1 = new GroupBox();
-            btnResumoAcervo = new Button();
+            grpMenuAcervo = new GroupBox();
+            btnAcervoCompleto = new Button();
             btnPaginaInicial = new Button();
             btnAddLivro = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            grpEstatisticaAcervo = new GroupBox();
+            grpNovidades = new GroupBox();
+            groupBox4 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox1.SuspendLayout();
+            grpMenuAcervo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            grpEstatisticaAcervo.SuspendLayout();
+            grpNovidades.SuspendLayout();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(33, 84);
+            pictureBox1.Location = new Point(26, 100);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(224, 328);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.DarkSlateGray;
-            label1.Location = new Point(635, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(286, 35);
-            label1.TabIndex = 18;
-            label1.Text = "Resumo do Acervo";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.DarkSlateGray;
+            lblTitulo.Location = new Point(618, 56);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(285, 36);
+            lblTitulo.TabIndex = 18;
+            lblTitulo.Text = "Resumo do Acervo";
             // 
             // panel1
             // 
-            panel1.Location = new Point(375, 107);
+            panel1.Location = new Point(157, 112);
             panel1.Name = "panel1";
-            panel1.Size = new Size(176, 149);
+            panel1.Size = new Size(176, 126);
             panel1.TabIndex = 21;
             // 
             // panel2
             // 
-            panel2.Location = new Point(731, 107);
+            panel2.Location = new Point(555, 110);
             panel2.Name = "panel2";
-            panel2.Size = new Size(176, 149);
+            panel2.Size = new Size(176, 128);
             panel2.TabIndex = 22;
             // 
             // panel3
             // 
-            panel3.Location = new Point(1087, 107);
+            panel3.Location = new Point(963, 111);
             panel3.Name = "panel3";
-            panel3.Size = new Size(176, 149);
+            panel3.Size = new Size(176, 127);
             panel3.TabIndex = 22;
             // 
-            // label3
+            // lblLidos
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Arial", 9F, FontStyle.Bold);
-            label3.ForeColor = Color.MediumSeaGreen;
-            label3.Location = new Point(434, 84);
-            label3.Name = "label3";
-            label3.Size = new Size(47, 18);
-            label3.TabIndex = 23;
-            label3.Text = "Lidos";
+            lblLidos.AutoSize = true;
+            lblLidos.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            lblLidos.ForeColor = Color.DarkSlateGray;
+            lblLidos.Location = new Point(46, 83);
+            lblLidos.Name = "lblLidos";
+            lblLidos.Size = new Size(58, 22);
+            lblLidos.TabIndex = 23;
+            lblLidos.Text = "Lidos";
             // 
-            // label4
+            // lblNaoLidos
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Arial", 9F, FontStyle.Bold);
-            label4.ForeColor = Color.MediumSeaGreen;
-            label4.Location = new Point(731, 84);
-            label4.Name = "label4";
-            label4.Size = new Size(79, 18);
-            label4.TabIndex = 24;
-            label4.Text = "Não Lidos";
+            lblNaoLidos.AutoSize = true;
+            lblNaoLidos.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            lblNaoLidos.ForeColor = Color.DarkSlateGray;
+            lblNaoLidos.Location = new Point(450, 83);
+            lblNaoLidos.Name = "lblNaoLidos";
+            lblNaoLidos.Size = new Size(100, 22);
+            lblNaoLidos.TabIndex = 24;
+            lblNaoLidos.Text = "Não Lidos";
             // 
-            // label5
+            // lblTotalAcervo
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Arial", 9F, FontStyle.Bold);
-            label5.ForeColor = Color.MediumSeaGreen;
-            label5.Location = new Point(1083, 84);
-            label5.Name = "label5";
-            label5.Size = new Size(96, 18);
-            label5.TabIndex = 25;
-            label5.Text = "Total Acervo";
+            lblTotalAcervo.AutoSize = true;
+            lblTotalAcervo.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            lblTotalAcervo.ForeColor = Color.DarkSlateGray;
+            lblTotalAcervo.Location = new Point(851, 83);
+            lblTotalAcervo.Name = "lblTotalAcervo";
+            lblTotalAcervo.Size = new Size(124, 22);
+            lblTotalAcervo.TabIndex = 25;
+            lblTotalAcervo.Text = "Total Acervo";
             // 
             // dataGridView1
             // 
@@ -137,11 +149,11 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Título, Autor, ISBN, Lido });
-            dataGridView1.Location = new Point(371, 480);
+            dataGridView1.Location = new Point(28, 40);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1059, 295);
+            dataGridView1.Size = new Size(1135, 271);
             dataGridView1.TabIndex = 26;
             // 
             // Título
@@ -172,86 +184,165 @@
             Lido.Name = "Lido";
             Lido.ReadOnly = true;
             // 
-            // groupBox1
+            // grpMenuAcervo
             // 
-            groupBox1.Controls.Add(btnResumoAcervo);
-            groupBox1.Controls.Add(btnPaginaInicial);
-            groupBox1.Controls.Add(btnAddLivro);
-            groupBox1.Location = new Point(33, 475);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(235, 300);
-            groupBox1.TabIndex = 42;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Menu de Navegação";
+            grpMenuAcervo.Controls.Add(btnAcervoCompleto);
+            grpMenuAcervo.Controls.Add(btnPaginaInicial);
+            grpMenuAcervo.Controls.Add(btnAddLivro);
+            grpMenuAcervo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grpMenuAcervo.ForeColor = Color.DarkSlateGray;
+            grpMenuAcervo.Location = new Point(26, 502);
+            grpMenuAcervo.Name = "grpMenuAcervo";
+            grpMenuAcervo.Size = new Size(235, 330);
+            grpMenuAcervo.TabIndex = 42;
+            grpMenuAcervo.TabStop = false;
+            grpMenuAcervo.Text = "Menu de Navegação";
             // 
-            // btnResumoAcervo
+            // btnAcervoCompleto
             // 
-            btnResumoAcervo.BackColor = Color.DarkSlateGray;
-            btnResumoAcervo.Font = new Font("Arial", 9F, FontStyle.Bold);
-            btnResumoAcervo.ForeColor = SystemColors.Control;
-            btnResumoAcervo.Image = Properties.Resources.Vector;
-            btnResumoAcervo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnResumoAcervo.Location = new Point(19, 228);
-            btnResumoAcervo.Name = "btnResumoAcervo";
-            btnResumoAcervo.Padding = new Padding(8, 0, 0, 0);
-            btnResumoAcervo.Size = new Size(200, 46);
-            btnResumoAcervo.TabIndex = 31;
-            btnResumoAcervo.Text = "Resumo Acervo";
-            btnResumoAcervo.UseVisualStyleBackColor = false;
+            btnAcervoCompleto.BackColor = Color.DarkSlateGray;
+            btnAcervoCompleto.Font = new Font("Microsoft Sans Serif", 10.2F);
+            btnAcervoCompleto.ForeColor = SystemColors.Control;
+            btnAcervoCompleto.Image = Properties.Resources.Vector;
+            btnAcervoCompleto.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAcervoCompleto.Location = new Point(18, 240);
+            btnAcervoCompleto.Name = "btnAcervoCompleto";
+            btnAcervoCompleto.Padding = new Padding(8, 0, 0, 0);
+            btnAcervoCompleto.Size = new Size(194, 46);
+            btnAcervoCompleto.TabIndex = 31;
+            btnAcervoCompleto.Text = "Acervo Completo";
+            btnAcervoCompleto.UseVisualStyleBackColor = false;
+            btnAcervoCompleto.Click += btnAcervoCompleto_Click;
             // 
             // btnPaginaInicial
             // 
             btnPaginaInicial.BackColor = Color.DarkSlateGray;
-            btnPaginaInicial.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPaginaInicial.Font = new Font("Microsoft Sans Serif", 10.2F);
             btnPaginaInicial.ForeColor = SystemColors.Control;
             btnPaginaInicial.Image = Properties.Resources.home;
             btnPaginaInicial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPaginaInicial.Location = new Point(19, 69);
+            btnPaginaInicial.Location = new Point(18, 85);
             btnPaginaInicial.Name = "btnPaginaInicial";
             btnPaginaInicial.Padding = new Padding(8, 0, 0, 0);
             btnPaginaInicial.Size = new Size(194, 46);
             btnPaginaInicial.TabIndex = 30;
             btnPaginaInicial.Text = "Página Inicial";
             btnPaginaInicial.UseVisualStyleBackColor = false;
+            btnPaginaInicial.Click += btnPaginaInicial_Click;
             // 
             // btnAddLivro
             // 
             btnAddLivro.BackColor = Color.DarkSlateGray;
-            btnAddLivro.Font = new Font("Arial", 9F, FontStyle.Bold);
+            btnAddLivro.Font = new Font("Microsoft Sans Serif", 10.2F);
             btnAddLivro.ForeColor = SystemColors.Control;
             btnAddLivro.Image = Properties.Resources.addLivro;
             btnAddLivro.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddLivro.Location = new Point(19, 148);
+            btnAddLivro.Location = new Point(18, 161);
             btnAddLivro.Name = "btnAddLivro";
             btnAddLivro.Padding = new Padding(8, 0, 0, 0);
             btnAddLivro.Size = new Size(194, 46);
             btnAddLivro.TabIndex = 32;
             btnAddLivro.Text = "Adicionar Livro";
             btnAddLivro.UseVisualStyleBackColor = false;
+            btnAddLivro.Click += btnAddLivro_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.livro_fechado;
+            pictureBox2.Location = new Point(446, 112);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(106, 126);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 43;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.pilha_de_livros;
+            pictureBox3.Location = new Point(853, 112);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(106, 126);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 44;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.livro_aberto3;
+            pictureBox4.Location = new Point(48, 112);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(106, 126);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 45;
+            pictureBox4.TabStop = false;
+            // 
+            // grpEstatisticaAcervo
+            // 
+            grpEstatisticaAcervo.Controls.Add(pictureBox4);
+            grpEstatisticaAcervo.Controls.Add(pictureBox3);
+            grpEstatisticaAcervo.Controls.Add(pictureBox2);
+            grpEstatisticaAcervo.Controls.Add(lblTotalAcervo);
+            grpEstatisticaAcervo.Controls.Add(lblNaoLidos);
+            grpEstatisticaAcervo.Controls.Add(lblLidos);
+            grpEstatisticaAcervo.Controls.Add(panel3);
+            grpEstatisticaAcervo.Controls.Add(panel2);
+            grpEstatisticaAcervo.Controls.Add(panel1);
+            grpEstatisticaAcervo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grpEstatisticaAcervo.ForeColor = Color.DarkSlateGray;
+            grpEstatisticaAcervo.Location = new Point(297, 133);
+            grpEstatisticaAcervo.Name = "grpEstatisticaAcervo";
+            grpEstatisticaAcervo.Size = new Size(1184, 295);
+            grpEstatisticaAcervo.TabIndex = 46;
+            grpEstatisticaAcervo.TabStop = false;
+            grpEstatisticaAcervo.Text = "Estatísticas do Acervo";
+            // 
+            // grpNovidades
+            // 
+            grpNovidades.Controls.Add(dataGridView1);
+            grpNovidades.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grpNovidades.ForeColor = Color.DarkSlateGray;
+            grpNovidades.Location = new Point(297, 502);
+            grpNovidades.Name = "grpNovidades";
+            grpNovidades.Size = new Size(1184, 330);
+            grpNovidades.TabIndex = 47;
+            grpNovidades.TabStop = false;
+            grpNovidades.Text = "Novidades";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(grpNovidades);
+            groupBox4.Controls.Add(lblTitulo);
+            groupBox4.Controls.Add(grpEstatisticaAcervo);
+            groupBox4.Controls.Add(grpMenuAcervo);
+            groupBox4.Controls.Add(pictureBox1);
+            groupBox4.Location = new Point(-6, -36);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(1502, 862);
+            groupBox4.TabIndex = 48;
+            groupBox4.TabStop = false;
+            groupBox4.Text = " ";
             // 
             // ResumoAcervo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1494, 829);
-            Controls.Add(groupBox1);
-            Controls.Add(dataGridView1);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Controls.Add(groupBox4);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ResumoAcervo";
-            Text = "Biblioteca Pessoal";
+            Text = "Resumo do Acervo";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox1.ResumeLayout(false);
+            grpMenuAcervo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            grpEstatisticaAcervo.ResumeLayout(false);
+            grpEstatisticaAcervo.PerformLayout();
+            grpNovidades.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -260,21 +351,27 @@
         private Button btnEntrar;
         private Button button1;
         private Button button2;
-        private Label label1;
+        private Label lblTitulo;
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private Label lblLidos;
+        private Label lblNaoLidos;
+        private Label lblTotalAcervo;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Título;
         private DataGridViewTextBoxColumn Autor;
         private DataGridViewTextBoxColumn ISBN;
         private DataGridViewTextBoxColumn Lido;
-        private GroupBox groupBox1;
-        private Button btnResumoAcervo;
+        private GroupBox grpMenuAcervo;
+        private Button btnAcervoCompleto;
         private Button btnPaginaInicial;
         private Button btnAddLivro;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private GroupBox grpEstatisticaAcervo;
+        private GroupBox grpNovidades;
+        private GroupBox groupBox4;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BookHub.Forms
 {
-    partial class TodosLivros
+    partial class AcervoCompleto
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             Button btnEditarLivro;
             Button btnSalvar;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TodosLivros));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AcervoCompleto));
             label1 = new Label();
             dgvTodosLivros = new DataGridView();
             Título = new DataGridViewTextBoxColumn();
@@ -51,11 +51,11 @@
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             panel2 = new Panel();
             groupBox3 = new GroupBox();
-            groupBox2 = new GroupBox();
+            grpBuscarLivros = new GroupBox();
             btnCancelar = new Button();
             txtIsbn = new TextBox();
             txtAutor = new TextBox();
-            groupBox1 = new GroupBox();
+            grpMenuAcervoCompleto = new GroupBox();
             sqlCommand2 = new Microsoft.Data.SqlClient.SqlCommand();
             btnEditarLivro = new Button();
             btnSalvar = new Button();
@@ -63,14 +63,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
+            grpBuscarLivros.SuspendLayout();
+            grpMenuAcervoCompleto.SuspendLayout();
             SuspendLayout();
             // 
             // btnEditarLivro
             // 
             btnEditarLivro.BackColor = Color.DarkSlateGray;
-            btnEditarLivro.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditarLivro.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             btnEditarLivro.ForeColor = SystemColors.Control;
             btnEditarLivro.Location = new Point(27, 227);
             btnEditarLivro.Name = "btnEditarLivro";
@@ -82,7 +82,7 @@
             // btnSalvar
             // 
             btnSalvar.BackColor = Color.DarkSlateGray;
-            btnSalvar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSalvar.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             btnSalvar.ForeColor = SystemColors.Control;
             btnSalvar.Location = new Point(283, 227);
             btnSalvar.Name = "btnSalvar";
@@ -94,14 +94,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkSlateGray;
-            label1.Location = new Point(623, 21);
+            label1.Location = new Point(610, 60);
             label1.Name = "label1";
-            label1.Size = new Size(318, 35);
+            label1.Size = new Size(320, 36);
             label1.TabIndex = 27;
             label1.Text = "Minha Estante Virtual";
-            label1.Click += label1_Click;
             // 
             // dgvTodosLivros
             // 
@@ -112,7 +111,7 @@
             dgvTodosLivros.ColumnHeadersHeight = 29;
             dgvTodosLivros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvTodosLivros.Columns.AddRange(new DataGridViewColumn[] { Título, Autor, ISBN, Lido, Data_de_Registro });
-            dgvTodosLivros.Location = new Point(279, 26);
+            dgvTodosLivros.Location = new Point(281, 152);
             dgvTodosLivros.Name = "dgvTodosLivros";
             dgvTodosLivros.ReadOnly = true;
             dgvTodosLivros.RowHeadersWidth = 51;
@@ -157,7 +156,7 @@
             // btnAddLivro
             // 
             btnAddLivro.BackColor = Color.DarkSlateGray;
-            btnAddLivro.Font = new Font("Arial", 9F, FontStyle.Bold);
+            btnAddLivro.Font = new Font("Microsoft Sans Serif", 10.2F);
             btnAddLivro.ForeColor = SystemColors.Control;
             btnAddLivro.Image = Properties.Resources.addLivro;
             btnAddLivro.ImageAlign = ContentAlignment.MiddleLeft;
@@ -168,26 +167,28 @@
             btnAddLivro.TabIndex = 32;
             btnAddLivro.Text = "Adicionar Livro";
             btnAddLivro.UseVisualStyleBackColor = false;
+            btnAddLivro.Click += btnAddLivro_Click;
             // 
             // btnResumoAcervo
             // 
             btnResumoAcervo.BackColor = Color.DarkSlateGray;
-            btnResumoAcervo.Font = new Font("Arial", 9F, FontStyle.Bold);
+            btnResumoAcervo.Font = new Font("Microsoft Sans Serif", 10.2F);
             btnResumoAcervo.ForeColor = SystemColors.Control;
             btnResumoAcervo.Image = Properties.Resources.Vector;
             btnResumoAcervo.ImageAlign = ContentAlignment.MiddleLeft;
             btnResumoAcervo.Location = new Point(19, 228);
             btnResumoAcervo.Name = "btnResumoAcervo";
             btnResumoAcervo.Padding = new Padding(8, 0, 0, 0);
-            btnResumoAcervo.Size = new Size(200, 46);
+            btnResumoAcervo.Size = new Size(194, 46);
             btnResumoAcervo.TabIndex = 31;
             btnResumoAcervo.Text = "Resumo Acervo";
             btnResumoAcervo.UseVisualStyleBackColor = false;
+            btnResumoAcervo.Click += btnResumoAcervo_Click;
             // 
             // btnPaginaInicial
             // 
             btnPaginaInicial.BackColor = Color.DarkSlateGray;
-            btnPaginaInicial.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPaginaInicial.Font = new Font("Microsoft Sans Serif", 10.2F);
             btnPaginaInicial.ForeColor = SystemColors.Control;
             btnPaginaInicial.Image = Properties.Resources.home;
             btnPaginaInicial.ImageAlign = ContentAlignment.MiddleLeft;
@@ -198,11 +199,12 @@
             btnPaginaInicial.TabIndex = 30;
             btnPaginaInicial.Text = "Página Inicial";
             btnPaginaInicial.UseVisualStyleBackColor = false;
+            btnPaginaInicial.Click += btnPaginaInicial_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(11, 46);
+            pictureBox1.Location = new Point(24, 152);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(235, 328);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -220,40 +222,40 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial", 9F, FontStyle.Bold);
-            label2.ForeColor = SystemColors.Desktop;
+            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.DarkSlateGray;
             label2.Location = new Point(23, 34);
             label2.Name = "label2";
-            label2.Size = new Size(49, 18);
+            label2.Size = new Size(50, 18);
             label2.TabIndex = 34;
             label2.Text = "Título";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial", 9F, FontStyle.Bold);
-            label3.ForeColor = SystemColors.Desktop;
+            label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label3.ForeColor = Color.DarkSlateGray;
             label3.Location = new Point(23, 120);
             label3.Name = "label3";
-            label3.Size = new Size(46, 18);
+            label3.Size = new Size(48, 18);
             label3.TabIndex = 36;
             label3.Text = "Autor";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial", 9F, FontStyle.Bold);
-            label4.ForeColor = SystemColors.Desktop;
+            label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label4.ForeColor = Color.DarkSlateGray;
             label4.Location = new Point(671, 120);
             label4.Name = "label4";
-            label4.Size = new Size(44, 18);
+            label4.Size = new Size(46, 18);
             label4.TabIndex = 38;
             label4.Text = "ISBN";
             // 
             // btnExcluir
             // 
             btnExcluir.BackColor = Color.LightCoral;
-            btnExcluir.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExcluir.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             btnExcluir.ForeColor = SystemColors.Control;
             btnExcluir.Location = new Point(939, 227);
             btnExcluir.Name = "btnExcluir";
@@ -265,7 +267,7 @@
             // btnPesquisar
             // 
             btnPesquisar.BackColor = Color.DarkSlateGray;
-            btnPesquisar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPesquisar.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             btnPesquisar.ForeColor = SystemColors.Control;
             btnPesquisar.Location = new Point(1023, 140);
             btnPesquisar.Name = "btnPesquisar";
@@ -273,7 +275,6 @@
             btnPesquisar.TabIndex = 40;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = false;
-            btnPesquisar.Click += btnCadastrar_Click;
             // 
             // sqlCommand1
             // 
@@ -284,7 +285,6 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.Controls.Add(groupBox3);
-            panel2.Controls.Add(label1);
             panel2.Location = new Point(-2, 1);
             panel2.Name = "panel2";
             panel2.Size = new Size(1495, 826);
@@ -293,40 +293,45 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(dgvTodosLivros);
-            groupBox3.Controls.Add(groupBox2);
+            groupBox3.Controls.Add(label1);
+            groupBox3.Controls.Add(grpBuscarLivros);
             groupBox3.Controls.Add(pictureBox1);
-            groupBox3.Controls.Add(groupBox1);
-            groupBox3.Location = new Point(14, 59);
+            groupBox3.Controls.Add(grpMenuAcervoCompleto);
+            groupBox3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox3.ForeColor = Color.DarkSlateGray;
+            groupBox3.Location = new Point(0, -37);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1470, 757);
+            groupBox3.Size = new Size(1501, 873);
             groupBox3.TabIndex = 44;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Acervo";
+            groupBox3.Text = " ";
             // 
-            // groupBox2
+            // grpBuscarLivros
             // 
-            groupBox2.Controls.Add(btnCancelar);
-            groupBox2.Controls.Add(btnSalvar);
-            groupBox2.Controls.Add(txtIsbn);
-            groupBox2.Controls.Add(txtAutor);
-            groupBox2.Controls.Add(btnExcluir);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(btnEditarLivro);
-            groupBox2.Controls.Add(txtTituloLivro);
-            groupBox2.Controls.Add(btnPesquisar);
-            groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Location = new Point(268, 439);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1181, 300);
-            groupBox2.TabIndex = 43;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Buscar Livros no Acervo";
+            grpBuscarLivros.Controls.Add(btnCancelar);
+            grpBuscarLivros.Controls.Add(btnSalvar);
+            grpBuscarLivros.Controls.Add(txtIsbn);
+            grpBuscarLivros.Controls.Add(txtAutor);
+            grpBuscarLivros.Controls.Add(btnExcluir);
+            grpBuscarLivros.Controls.Add(label2);
+            grpBuscarLivros.Controls.Add(btnEditarLivro);
+            grpBuscarLivros.Controls.Add(txtTituloLivro);
+            grpBuscarLivros.Controls.Add(btnPesquisar);
+            grpBuscarLivros.Controls.Add(label3);
+            grpBuscarLivros.Controls.Add(label4);
+            grpBuscarLivros.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grpBuscarLivros.ForeColor = Color.DarkSlateGray;
+            grpBuscarLivros.Location = new Point(281, 541);
+            grpBuscarLivros.Name = "grpBuscarLivros";
+            grpBuscarLivros.Size = new Size(1181, 300);
+            grpBuscarLivros.TabIndex = 43;
+            grpBuscarLivros.TabStop = false;
+            grpBuscarLivros.Text = "Buscar Livros no Acervo";
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.DarkSlateGray;
-            btnCancelar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             btnCancelar.ForeColor = SystemColors.Control;
             btnCancelar.Location = new Point(538, 227);
             btnCancelar.Name = "btnCancelar";
@@ -351,41 +356,43 @@
             txtAutor.Size = new Size(622, 45);
             txtAutor.TabIndex = 43;
             // 
-            // groupBox1
+            // grpMenuAcervoCompleto
             // 
-            groupBox1.Controls.Add(btnResumoAcervo);
-            groupBox1.Controls.Add(btnPaginaInicial);
-            groupBox1.Controls.Add(btnAddLivro);
-            groupBox1.Location = new Point(13, 439);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(235, 300);
-            groupBox1.TabIndex = 41;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Menu de Navegação";
+            grpMenuAcervoCompleto.Controls.Add(btnResumoAcervo);
+            grpMenuAcervoCompleto.Controls.Add(btnPaginaInicial);
+            grpMenuAcervoCompleto.Controls.Add(btnAddLivro);
+            grpMenuAcervoCompleto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grpMenuAcervoCompleto.ForeColor = Color.DarkSlateGray;
+            grpMenuAcervoCompleto.Location = new Point(26, 541);
+            grpMenuAcervoCompleto.Name = "grpMenuAcervoCompleto";
+            grpMenuAcervoCompleto.Size = new Size(235, 300);
+            grpMenuAcervoCompleto.TabIndex = 41;
+            grpMenuAcervoCompleto.TabStop = false;
+            grpMenuAcervoCompleto.Text = "Menu de Navegação";
             // 
             // sqlCommand2
             // 
             sqlCommand2.CommandTimeout = 30;
             sqlCommand2.EnableOptimizedParameterBinding = false;
             // 
-            // TodosLivros
+            // AcervoCompleto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1494, 829);
             Controls.Add(panel2);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "TodosLivros";
+            Name = "AcervoCompleto";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Lista de Livros";
+            Text = "Acervo Completo";
             ((System.ComponentModel.ISupportInitialize)dgvTodosLivros).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             groupBox3.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox1.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            grpBuscarLivros.ResumeLayout(false);
+            grpBuscarLivros.PerformLayout();
+            grpMenuAcervoCompleto.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -411,8 +418,8 @@
         private Button btnExcluir;
         private Panel panel2;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand2;
-        private GroupBox groupBox1;
-        private GroupBox groupBox2;
+        private GroupBox grpMenuAcervoCompleto;
+        private GroupBox grpBuscarLivros;
         private TextBox txtIsbn;
         private TextBox txtAutor;
         private Button btnCancelar;

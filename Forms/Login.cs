@@ -20,7 +20,7 @@ namespace BookHub.Forms
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             // Abrir a tela TodosLivros
-            TodosLivros telaTodosLivros = new TodosLivros(); telaTodosLivros.Show();
+            AcervoCompleto telaTodosLivros = new AcervoCompleto(); telaTodosLivros.Show();
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             label1 = new Label();
@@ -40,57 +39,63 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(57, 204);
+            textBox1.Font = new Font("Microsoft Sans Serif", 9F);
+            textBox1.Location = new Point(57, 223);
+            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(287, 27);
+            textBox1.Size = new Size(553, 44);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(57, 285);
+            textBox2.Font = new Font("Microsoft Sans Serif", 9F);
+            textBox2.Location = new Point(57, 322);
+            textBox2.Multiline = true;
             textBox2.Name = "textBox2";
             textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(287, 27);
+            textBox2.Size = new Size(553, 44);
             textBox2.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(57, 181);
+            label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.DarkSlateGray;
+            label1.Location = new Point(57, 200);
             label1.Name = "label1";
-            label1.Size = new Size(48, 18);
+            label1.Size = new Size(49, 18);
             label1.TabIndex = 2;
             label1.Text = "Login";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(54, 263);
+            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.DarkSlateGray;
+            label2.Location = new Point(54, 300);
             label2.Name = "label2";
-            label2.Size = new Size(53, 18);
+            label2.Size = new Size(55, 18);
             label2.TabIndex = 3;
             label2.Text = "Senha";
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(105, 32);
+            pictureBox1.Image = Properties.Resources.user02;
+            pictureBox1.Location = new Point(190, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(163, 129);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(261, 177);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // btnEntrar
             // 
-            btnEntrar.BackColor = Color.MediumSeaGreen;
-            btnEntrar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEntrar.BackColor = Color.DarkSlateGray;
+            btnEntrar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEntrar.ForeColor = SystemColors.Control;
-            btnEntrar.Location = new Point(136, 336);
+            btnEntrar.Location = new Point(54, 398);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(119, 38);
+            btnEntrar.Size = new Size(223, 47);
             btnEntrar.TabIndex = 13;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -100,7 +105,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 399);
+            ClientSize = new Size(691, 528);
             Controls.Add(btnEntrar);
             Controls.Add(pictureBox1);
             Controls.Add(label2);

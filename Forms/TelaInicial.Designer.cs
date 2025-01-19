@@ -42,54 +42,60 @@
             // 
             lblTitulo.Anchor = AnchorStyles.None;
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.MediumSeaGreen;
-            lblTitulo.Location = new Point(475, 203);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 49.8000031F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.DarkSlateGray;
+            lblTitulo.Location = new Point(264, 353);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(510, 93);
+            lblTitulo.Size = new Size(509, 95);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "BookHub 📚";
             lblTitulo.Click += lblTitulo_Click;
             // 
             // imgCapa
             // 
-            imgCapa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            imgCapa.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             imgCapa.BackgroundImageLayout = ImageLayout.None;
             imgCapa.ErrorImage = null;
             imgCapa.Image = (Image)resources.GetObject("imgCapa.Image");
             imgCapa.InitialImage = null;
-            imgCapa.Location = new Point(967, 481);
+            imgCapa.Location = new Point(991, 107);
             imgCapa.Name = "imgCapa";
-            imgCapa.Size = new Size(515, 345);
-            imgCapa.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgCapa.Size = new Size(393, 626);
+            imgCapa.SizeMode = PictureBoxSizeMode.AutoSize;
             imgCapa.TabIndex = 1;
             imgCapa.TabStop = false;
             // 
             // btnCadastrar
             // 
             btnCadastrar.Anchor = AnchorStyles.None;
-            btnCadastrar.BackColor = Color.MediumSeaGreen;
-            btnCadastrar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCadastrar.BackColor = Color.DarkSlateGray;
+            btnCadastrar.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             btnCadastrar.ForeColor = SystemColors.Control;
-            btnCadastrar.Location = new Point(501, 357);
+            btnCadastrar.Image = Properties.Resources.user;
+            btnCadastrar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCadastrar.Location = new Point(280, 510);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(162, 46);
+            btnCadastrar.Padding = new Padding(8, 0, 0, 0);
+            btnCadastrar.Size = new Size(212, 46);
             btnCadastrar.TabIndex = 2;
-            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.Text = "Criar Conta";
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnEntrar
             // 
             btnEntrar.Anchor = AnchorStyles.None;
-            btnEntrar.BackColor = Color.MediumSeaGreen;
-            btnEntrar.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEntrar.BackColor = Color.DarkSlateGray;
+            btnEntrar.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             btnEntrar.ForeColor = SystemColors.Control;
-            btnEntrar.Location = new Point(740, 357);
+            btnEntrar.Image = Properties.Resources.cadeado;
+            btnEntrar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEntrar.Location = new Point(519, 510);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(162, 46);
+            btnEntrar.Padding = new Padding(8, 0, 0, 0);
+            btnEntrar.Size = new Size(212, 46);
             btnEntrar.TabIndex = 3;
-            btnEntrar.Text = "Entrar";
+            btnEntrar.Text = "Fazer Login";
             btnEntrar.UseVisualStyleBackColor = false;
             btnEntrar.Click += btnEntrar_Click;
             // 
@@ -102,7 +108,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1494, 829);
+            panel1.Size = new Size(1494, 947);
             panel1.TabIndex = 4;
             // 
             // TelaInicial
@@ -111,12 +117,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1494, 829);
+            ClientSize = new Size(1494, 947);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaInicial";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "BookHub";
+            Text = "Bem-vindo ao BookHub";
             ((System.ComponentModel.ISupportInitialize)imgCapa).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
