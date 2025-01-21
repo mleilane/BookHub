@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace BookHub.Forms
 {
-    public partial class Cadastro : Form
+    public partial class FrmCadastroDeLivros : Form
     {
-        public Cadastro()
+        public FrmCadastroDeLivros()
         {
             InitializeComponent();
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }

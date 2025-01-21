@@ -1,6 +1,6 @@
 ﻿namespace BookHub.Forms
 {
-    partial class Cadastro
+    partial class FrmCadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastro));
             pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
@@ -44,9 +44,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.user03;
-            pictureBox1.Location = new Point(262, 39);
+            pictureBox1.Location = new Point(229, 29);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(163, 129);
+            pictureBox1.Size = new Size(143, 97);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
@@ -56,9 +57,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label2.ForeColor = Color.DarkSlateGray;
-            label2.Location = new Point(370, 298);
+            label2.Location = new Point(324, 224);
             label2.Name = "label2";
-            label2.Size = new Size(55, 18);
+            label2.Size = new Size(48, 15);
             label2.TabIndex = 8;
             label2.Text = "Senha";
             // 
@@ -67,19 +68,20 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label1.ForeColor = Color.DarkSlateGray;
-            label1.Location = new Point(99, 298);
+            label1.Location = new Point(87, 224);
             label1.Name = "label1";
-            label1.Size = new Size(49, 18);
+            label1.Size = new Size(43, 15);
             label1.TabIndex = 7;
             label1.Text = "Login";
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox1.Location = new Point(99, 321);
+            textBox1.Location = new Point(87, 241);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(222, 40);
+            textBox1.Size = new Size(195, 31);
             textBox1.TabIndex = 5;
             // 
             // label3
@@ -87,19 +89,20 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label3.ForeColor = Color.DarkSlateGray;
-            label3.Location = new Point(99, 206);
+            label3.Location = new Point(87, 154);
             label3.Name = "label3";
-            label3.Size = new Size(53, 18);
+            label3.Size = new Size(45, 15);
             label3.TabIndex = 11;
             label3.Text = "Nome";
             // 
             // textBox3
             // 
             textBox3.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox3.Location = new Point(99, 229);
+            textBox3.Location = new Point(87, 172);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(497, 40);
+            textBox3.Size = new Size(435, 31);
             textBox3.TabIndex = 10;
             // 
             // btnEntrar
@@ -107,9 +110,13 @@
             btnEntrar.BackColor = Color.DarkSlateGray;
             btnEntrar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnEntrar.ForeColor = SystemColors.Control;
-            btnEntrar.Location = new Point(99, 423);
+            btnEntrar.Image = Properties.Resources.salvar2;
+            btnEntrar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEntrar.Location = new Point(87, 317);
+            btnEntrar.Margin = new Padding(3, 2, 3, 2);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(223, 47);
+            btnEntrar.Padding = new Padding(8, 0, 0, 0);
+            btnEntrar.Size = new Size(195, 35);
             btnEntrar.TabIndex = 12;
             btnEntrar.Text = "Cadastrar";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -120,9 +127,13 @@
             button1.BackColor = Color.LightCoral;
             button1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(374, 423);
+            button1.Image = Properties.Resources.excluir_cancelar;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(327, 317);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(223, 47);
+            button1.Padding = new Padding(8, 0, 0, 0);
+            button1.Size = new Size(195, 35);
             button1.TabIndex = 13;
             button1.Text = "Cancelar";
             button1.UseVisualStyleBackColor = false;
@@ -130,17 +141,18 @@
             // textBox2
             // 
             textBox2.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox2.Location = new Point(374, 321);
+            textBox2.Location = new Point(327, 241);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(222, 40);
+            textBox2.Size = new Size(195, 31);
             textBox2.TabIndex = 14;
             // 
-            // Cadastro
+            // FrmCadastro
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(691, 528);
+            ClientSize = new Size(605, 396);
             Controls.Add(textBox2);
             Controls.Add(button1);
             Controls.Add(btnEntrar);
@@ -151,9 +163,10 @@
             Controls.Add(label1);
             Controls.Add(textBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Cadastro";
+            Name = "FrmCadastro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de usuário";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

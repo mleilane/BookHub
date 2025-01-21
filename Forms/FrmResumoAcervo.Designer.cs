@@ -1,6 +1,6 @@
 ﻿namespace BookHub.Forms
 {
-    partial class ResumoAcervo
+    partial class FrmResumoAcervo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResumoAcervo));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmResumoAcervo));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             lblTitulo = new Label();
             panel1 = new Panel();
@@ -67,9 +67,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(26, 100);
+            pictureBox1.Location = new Point(23, 75);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(224, 328);
+            pictureBox1.Size = new Size(196, 246);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -79,31 +80,34 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.DarkSlateGray;
-            lblTitulo.Location = new Point(618, 56);
+            lblTitulo.Location = new Point(541, 42);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(285, 36);
+            lblTitulo.Size = new Size(233, 29);
             lblTitulo.TabIndex = 18;
             lblTitulo.Text = "Resumo do Acervo";
             // 
             // panel1
             // 
-            panel1.Location = new Point(157, 112);
+            panel1.Location = new Point(137, 84);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(176, 126);
+            panel1.Size = new Size(154, 94);
             panel1.TabIndex = 21;
             // 
             // panel2
             // 
-            panel2.Location = new Point(555, 110);
+            panel2.Location = new Point(486, 82);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(176, 128);
+            panel2.Size = new Size(154, 96);
             panel2.TabIndex = 22;
             // 
             // panel3
             // 
-            panel3.Location = new Point(963, 111);
+            panel3.Location = new Point(843, 83);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(176, 127);
+            panel3.Size = new Size(154, 95);
             panel3.TabIndex = 22;
             // 
             // lblLidos
@@ -111,9 +115,9 @@
             lblLidos.AutoSize = true;
             lblLidos.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
             lblLidos.ForeColor = Color.DarkSlateGray;
-            lblLidos.Location = new Point(46, 83);
+            lblLidos.Location = new Point(40, 62);
             lblLidos.Name = "lblLidos";
-            lblLidos.Size = new Size(58, 22);
+            lblLidos.Size = new Size(49, 18);
             lblLidos.TabIndex = 23;
             lblLidos.Text = "Lidos";
             // 
@@ -122,9 +126,9 @@
             lblNaoLidos.AutoSize = true;
             lblNaoLidos.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
             lblNaoLidos.ForeColor = Color.DarkSlateGray;
-            lblNaoLidos.Location = new Point(450, 83);
+            lblNaoLidos.Location = new Point(394, 62);
             lblNaoLidos.Name = "lblNaoLidos";
-            lblNaoLidos.Size = new Size(100, 22);
+            lblNaoLidos.Size = new Size(85, 18);
             lblNaoLidos.TabIndex = 24;
             lblNaoLidos.Text = "Não Lidos";
             // 
@@ -133,9 +137,9 @@
             lblTotalAcervo.AutoSize = true;
             lblTotalAcervo.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
             lblTotalAcervo.ForeColor = Color.DarkSlateGray;
-            lblTotalAcervo.Location = new Point(851, 83);
+            lblTotalAcervo.Location = new Point(745, 62);
             lblTotalAcervo.Name = "lblTotalAcervo";
-            lblTotalAcervo.Size = new Size(124, 22);
+            lblTotalAcervo.Size = new Size(103, 18);
             lblTotalAcervo.TabIndex = 25;
             lblTotalAcervo.Text = "Total Acervo";
             // 
@@ -144,16 +148,17 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(192, 255, 192);
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Título, Autor, ISBN, Lido });
-            dataGridView1.Location = new Point(28, 40);
+            dataGridView1.Location = new Point(24, 30);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1135, 271);
+            dataGridView1.Size = new Size(993, 203);
             dataGridView1.TabIndex = 26;
             // 
             // Título
@@ -191,9 +196,11 @@
             grpMenuAcervo.Controls.Add(btnAddLivro);
             grpMenuAcervo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grpMenuAcervo.ForeColor = Color.DarkSlateGray;
-            grpMenuAcervo.Location = new Point(26, 502);
+            grpMenuAcervo.Location = new Point(23, 376);
+            grpMenuAcervo.Margin = new Padding(3, 2, 3, 2);
             grpMenuAcervo.Name = "grpMenuAcervo";
-            grpMenuAcervo.Size = new Size(235, 330);
+            grpMenuAcervo.Padding = new Padding(3, 2, 3, 2);
+            grpMenuAcervo.Size = new Size(206, 248);
             grpMenuAcervo.TabIndex = 42;
             grpMenuAcervo.TabStop = false;
             grpMenuAcervo.Text = "Menu de Navegação";
@@ -201,14 +208,15 @@
             // btnAcervoCompleto
             // 
             btnAcervoCompleto.BackColor = Color.DarkSlateGray;
-            btnAcervoCompleto.Font = new Font("Microsoft Sans Serif", 10.2F);
+            btnAcervoCompleto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             btnAcervoCompleto.ForeColor = SystemColors.Control;
             btnAcervoCompleto.Image = Properties.Resources.Vector;
             btnAcervoCompleto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAcervoCompleto.Location = new Point(18, 240);
+            btnAcervoCompleto.Location = new Point(12, 180);
+            btnAcervoCompleto.Margin = new Padding(3, 2, 3, 2);
             btnAcervoCompleto.Name = "btnAcervoCompleto";
-            btnAcervoCompleto.Padding = new Padding(8, 0, 0, 0);
-            btnAcervoCompleto.Size = new Size(194, 46);
+            btnAcervoCompleto.Padding = new Padding(7, 0, 0, 0);
+            btnAcervoCompleto.Size = new Size(180, 34);
             btnAcervoCompleto.TabIndex = 31;
             btnAcervoCompleto.Text = "Acervo Completo";
             btnAcervoCompleto.UseVisualStyleBackColor = false;
@@ -217,14 +225,15 @@
             // btnPaginaInicial
             // 
             btnPaginaInicial.BackColor = Color.DarkSlateGray;
-            btnPaginaInicial.Font = new Font("Microsoft Sans Serif", 10.2F);
+            btnPaginaInicial.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             btnPaginaInicial.ForeColor = SystemColors.Control;
             btnPaginaInicial.Image = Properties.Resources.home;
             btnPaginaInicial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPaginaInicial.Location = new Point(18, 85);
+            btnPaginaInicial.Location = new Point(12, 64);
+            btnPaginaInicial.Margin = new Padding(3, 2, 3, 2);
             btnPaginaInicial.Name = "btnPaginaInicial";
-            btnPaginaInicial.Padding = new Padding(8, 0, 0, 0);
-            btnPaginaInicial.Size = new Size(194, 46);
+            btnPaginaInicial.Padding = new Padding(7, 0, 0, 0);
+            btnPaginaInicial.Size = new Size(180, 34);
             btnPaginaInicial.TabIndex = 30;
             btnPaginaInicial.Text = "Página Inicial";
             btnPaginaInicial.UseVisualStyleBackColor = false;
@@ -233,14 +242,15 @@
             // btnAddLivro
             // 
             btnAddLivro.BackColor = Color.DarkSlateGray;
-            btnAddLivro.Font = new Font("Microsoft Sans Serif", 10.2F);
+            btnAddLivro.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             btnAddLivro.ForeColor = SystemColors.Control;
             btnAddLivro.Image = Properties.Resources.addLivro;
             btnAddLivro.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddLivro.Location = new Point(18, 161);
+            btnAddLivro.Location = new Point(12, 121);
+            btnAddLivro.Margin = new Padding(3, 2, 3, 2);
             btnAddLivro.Name = "btnAddLivro";
-            btnAddLivro.Padding = new Padding(8, 0, 0, 0);
-            btnAddLivro.Size = new Size(194, 46);
+            btnAddLivro.Padding = new Padding(7, 0, 0, 0);
+            btnAddLivro.Size = new Size(180, 34);
             btnAddLivro.TabIndex = 32;
             btnAddLivro.Text = "Adicionar Livro";
             btnAddLivro.UseVisualStyleBackColor = false;
@@ -249,9 +259,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.livro_fechado;
-            pictureBox2.Location = new Point(446, 112);
+            pictureBox2.Location = new Point(390, 84);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(106, 126);
+            pictureBox2.Size = new Size(93, 94);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 43;
             pictureBox2.TabStop = false;
@@ -259,9 +270,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.pilha_de_livros;
-            pictureBox3.Location = new Point(853, 112);
+            pictureBox3.Location = new Point(746, 84);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(106, 126);
+            pictureBox3.Size = new Size(93, 94);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 44;
             pictureBox3.TabStop = false;
@@ -269,9 +281,10 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.livro_aberto3;
-            pictureBox4.Location = new Point(48, 112);
+            pictureBox4.Location = new Point(42, 84);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(106, 126);
+            pictureBox4.Size = new Size(93, 94);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 45;
             pictureBox4.TabStop = false;
@@ -289,9 +302,11 @@
             grpEstatisticaAcervo.Controls.Add(panel1);
             grpEstatisticaAcervo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grpEstatisticaAcervo.ForeColor = Color.DarkSlateGray;
-            grpEstatisticaAcervo.Location = new Point(297, 133);
+            grpEstatisticaAcervo.Location = new Point(260, 100);
+            grpEstatisticaAcervo.Margin = new Padding(3, 2, 3, 2);
             grpEstatisticaAcervo.Name = "grpEstatisticaAcervo";
-            grpEstatisticaAcervo.Size = new Size(1184, 295);
+            grpEstatisticaAcervo.Padding = new Padding(3, 2, 3, 2);
+            grpEstatisticaAcervo.Size = new Size(1036, 221);
             grpEstatisticaAcervo.TabIndex = 46;
             grpEstatisticaAcervo.TabStop = false;
             grpEstatisticaAcervo.Text = "Estatísticas do Acervo";
@@ -301,9 +316,11 @@
             grpNovidades.Controls.Add(dataGridView1);
             grpNovidades.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grpNovidades.ForeColor = Color.DarkSlateGray;
-            grpNovidades.Location = new Point(297, 502);
+            grpNovidades.Location = new Point(260, 376);
+            grpNovidades.Margin = new Padding(3, 2, 3, 2);
             grpNovidades.Name = "grpNovidades";
-            grpNovidades.Size = new Size(1184, 330);
+            grpNovidades.Padding = new Padding(3, 2, 3, 2);
+            grpNovidades.Size = new Size(1036, 248);
             grpNovidades.TabIndex = 47;
             grpNovidades.TabStop = false;
             grpNovidades.Text = "Novidades";
@@ -315,21 +332,24 @@
             groupBox4.Controls.Add(grpEstatisticaAcervo);
             groupBox4.Controls.Add(grpMenuAcervo);
             groupBox4.Controls.Add(pictureBox1);
-            groupBox4.Location = new Point(-6, -36);
+            groupBox4.Location = new Point(-5, -27);
+            groupBox4.Margin = new Padding(3, 2, 3, 2);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1502, 862);
+            groupBox4.Padding = new Padding(3, 2, 3, 2);
+            groupBox4.Size = new Size(1314, 646);
             groupBox4.TabIndex = 48;
             groupBox4.TabStop = false;
             groupBox4.Text = " ";
             // 
-            // ResumoAcervo
+            // FrmResumoAcervo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1494, 829);
+            ClientSize = new Size(1307, 622);
             Controls.Add(groupBox4);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "ResumoAcervo";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "FrmResumoAcervo";
             Text = "Resumo do Acervo";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

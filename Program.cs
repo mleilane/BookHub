@@ -37,7 +37,7 @@ namespace BookHub
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new TelaInicial());
+            Application.Run(new FrmTelaInicial());
 
            
         }

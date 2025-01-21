@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BookHub.Forms
 {
-    public partial class AcervoCompleto : Form
+    public partial class FrmAcervoCompleto : Form
     {
-        public AcervoCompleto()
+        public FrmAcervoCompleto()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace BookHub.Forms
         private void btnPaginaInicial_Click(object sender, EventArgs e)
         {
             //criando uma instancia da tela Inicial
-            TelaInicial telaInicialForm = new TelaInicial();
+            FrmTelaInicial telaInicialForm = new FrmTelaInicial();
 
             //exibindo a tela inicial e fechando o AcervoCompleto 
             telaInicialForm.Show();
@@ -37,7 +37,7 @@ namespace BookHub.Forms
         private void btnResumoAcervo_Click(object sender, EventArgs e)
         {
             //criando instancia 
-            ResumoAcervo resumoAcervoForm = new ResumoAcervo();
+            FrmResumoAcervo resumoAcervoForm = new FrmResumoAcervo();
 
             //exibindo o form ResumoAcervo
             resumoAcervoForm.ShowDialog();
@@ -48,10 +48,10 @@ namespace BookHub.Forms
         private void btnAddLivro_Click(object sender, EventArgs e)
         {
             //criando instancia 
-            CadastroDeLivros cadastroDeLivros = new CadastroDeLivros();
+            FrmCadastroDeLivros frmcadastroDeLivros = new FrmCadastroDeLivros();
 
             //exibindo o form CadastroDeLivros
-            cadastroDeLivros.ShowDialog();
+            frmcadastroDeLivros.ShowDialog();
         }
     }
 }

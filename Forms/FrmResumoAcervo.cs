@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BookHub.Forms
 {
-    public partial class ResumoAcervo : Form
+    public partial class FrmResumoAcervo : Form
     {
-        public ResumoAcervo()
+        public FrmResumoAcervo()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace BookHub.Forms
         private void btnPaginaInicial_Click(object sender, EventArgs e)
         {
             //verifica se já existe uma instancia da TelaInicial aberta 
-            Form telaInicialAberta = Application.OpenForms.OfType<TelaInicial>().FirstOrDefault();
+            Form telaInicialAberta = Application.OpenForms.OfType<FrmTelaInicial>().FirstOrDefault();
 
             if (telaInicialAberta != null)
             {
@@ -33,7 +33,7 @@ namespace BookHub.Forms
                 //se não existir, cria instancia e exibe 
                 Console.WriteLine("Criando uma nova instância de TelaInicial.");
 
-                TelaInicial telaInicialForm = new TelaInicial();
+                FrmTelaInicial telaInicialForm = new FrmTelaInicial();
                 telaInicialForm.Show();
 
             }
@@ -44,7 +44,7 @@ namespace BookHub.Forms
         private void btnAcervoCompleto_Click(object sender, EventArgs e)
         {
             //verifica se ja exite esse form aberto
-            Form acervoCompletoAberto = Application.OpenForms.OfType<AcervoCompleto>().FirstOrDefault();
+            Form acervoCompletoAberto = Application.OpenForms.OfType<FrmAcervoCompleto>().FirstOrDefault();
 
             if (acervoCompletoAberto != null)
             {
@@ -54,7 +54,7 @@ namespace BookHub.Forms
             else
             {
                 //se não existir, cria instancia e exibe
-                AcervoCompleto acervoCompleto = new AcervoCompleto(); //criando instancia 
+                FrmAcervoCompleto acervoCompleto = new FrmAcervoCompleto(); //criando instancia 
                 acervoCompleto.Show(); //exibindo 
             }
             this.Close();// Fecha o formulário atual
@@ -64,7 +64,7 @@ namespace BookHub.Forms
         private void btnAddLivro_Click(object sender, EventArgs e)
         {
             //criando instancia 
-            CadastroDeLivros cadastroDeLivros = new CadastroDeLivros();
+            FrmCadastroDeLivros cadastroDeLivros = new FrmCadastroDeLivros();
 
             //exibindo o form CadastroDeLivros
             cadastroDeLivros.ShowDialog();

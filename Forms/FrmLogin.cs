@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BookHub.Forms
 {
-    public partial class Login : Form
+    public partial class FrmLogin : Form
     {
-        public Login()
+        public FrmLogin()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace BookHub.Forms
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             // Abrir a tela TodosLivros
-            AcervoCompleto telaTodosLivros = new AcervoCompleto(); telaTodosLivros.Show();
+            FrmAcervoCompleto telaTodosLivros = new FrmAcervoCompleto(); telaTodosLivros.Show();
         }
     }
 }

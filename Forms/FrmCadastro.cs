@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace BookHub.Forms
 {
-    public partial class CadastroDeLivros : Form
+    public partial class FrmCadastro : Form
     {
-        public CadastroDeLivros()
+        public FrmCadastro()
         {
             InitializeComponent();
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

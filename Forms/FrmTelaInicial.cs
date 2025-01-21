@@ -2,9 +2,9 @@ using BookHub.Forms;
 
 namespace BookHub
 {
-    public partial class TelaInicial : Form
+    public partial class FrmTelaInicial : Form
     {
-        public TelaInicial()
+        public FrmTelaInicial()
         {
             InitializeComponent();
         }
@@ -14,7 +14,7 @@ namespace BookHub
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             // criando uma instancia do formulario login
-            Login loginForm = new Login();
+            FrmLogin loginForm = new FrmLogin();
 
             //abre o form login como uma janela modal 
             loginForm.ShowDialog();
@@ -23,7 +23,7 @@ namespace BookHub
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             // criando uma instancia do formulario login
-            Cadastro cadastroForm = new Cadastro();
+            FrmCadastro cadastroForm = new FrmCadastro();
 
             //abre o form login como uma janela modal 
             cadastroForm.ShowDialog();
