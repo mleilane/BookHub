@@ -30,8 +30,7 @@ namespace BookHub.Forms
             this.Close(); // Fecha o formulário atual
         }
 
-        
-   
+  
 
         //botao resumo acervo
         private void btnResumoAcervo_Click(object sender, EventArgs e)

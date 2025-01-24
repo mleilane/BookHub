@@ -32,22 +32,21 @@
             pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtLogin = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            txtNome = new TextBox();
             btnEntrar = new Button();
             button1 = new Button();
-            textBox2 = new TextBox();
+            txtSenha = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.user03;
-            pictureBox1.Location = new Point(229, 29);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(262, 37);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(143, 97);
+            pictureBox1.Size = new Size(163, 123);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
@@ -57,9 +56,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label2.ForeColor = Color.DarkSlateGray;
-            label2.Location = new Point(324, 224);
+            label2.Location = new Point(370, 284);
             label2.Name = "label2";
-            label2.Size = new Size(48, 15);
+            label2.Size = new Size(55, 18);
             label2.TabIndex = 8;
             label2.Text = "Senha";
             // 
@@ -68,42 +67,40 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label1.ForeColor = Color.DarkSlateGray;
-            label1.Location = new Point(87, 224);
+            label1.Location = new Point(99, 284);
             label1.Name = "label1";
-            label1.Size = new Size(43, 15);
+            label1.Size = new Size(49, 18);
             label1.TabIndex = 7;
             label1.Text = "Login";
             // 
-            // textBox1
+            // txtLogin
             // 
-            textBox1.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox1.Location = new Point(87, 241);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(195, 31);
-            textBox1.TabIndex = 5;
+            txtLogin.Font = new Font("Microsoft Sans Serif", 9F);
+            txtLogin.Location = new Point(99, 305);
+            txtLogin.Multiline = true;
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(222, 38);
+            txtLogin.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label3.ForeColor = Color.DarkSlateGray;
-            label3.Location = new Point(87, 154);
+            label3.Location = new Point(99, 195);
             label3.Name = "label3";
-            label3.Size = new Size(45, 15);
+            label3.Size = new Size(53, 18);
             label3.TabIndex = 11;
             label3.Text = "Nome";
             // 
-            // textBox3
+            // txtNome
             // 
-            textBox3.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox3.Location = new Point(87, 172);
-            textBox3.Margin = new Padding(3, 2, 3, 2);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(435, 31);
-            textBox3.TabIndex = 10;
+            txtNome.Font = new Font("Microsoft Sans Serif", 9F);
+            txtNome.Location = new Point(99, 218);
+            txtNome.Multiline = true;
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(497, 38);
+            txtNome.TabIndex = 10;
             // 
             // btnEntrar
             // 
@@ -112,11 +109,10 @@
             btnEntrar.ForeColor = SystemColors.Control;
             btnEntrar.Image = Properties.Resources.salvar2;
             btnEntrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEntrar.Location = new Point(87, 317);
-            btnEntrar.Margin = new Padding(3, 2, 3, 2);
+            btnEntrar.Location = new Point(99, 402);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Padding = new Padding(8, 0, 0, 0);
-            btnEntrar.Size = new Size(195, 35);
+            btnEntrar.Padding = new Padding(9, 0, 0, 0);
+            btnEntrar.Size = new Size(223, 44);
             btnEntrar.TabIndex = 12;
             btnEntrar.Text = "Cadastrar";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -129,41 +125,38 @@
             button1.ForeColor = SystemColors.Control;
             button1.Image = Properties.Resources.excluir_cancelar;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(327, 317);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(374, 402);
             button1.Name = "button1";
-            button1.Padding = new Padding(8, 0, 0, 0);
-            button1.Size = new Size(195, 35);
+            button1.Padding = new Padding(9, 0, 0, 0);
+            button1.Size = new Size(223, 44);
             button1.TabIndex = 13;
             button1.Text = "Cancelar";
             button1.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtSenha
             // 
-            textBox2.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox2.Location = new Point(327, 241);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(195, 31);
-            textBox2.TabIndex = 14;
+            txtSenha.Font = new Font("Microsoft Sans Serif", 9F);
+            txtSenha.Location = new Point(374, 305);
+            txtSenha.Multiline = true;
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(222, 38);
+            txtSenha.TabIndex = 14;
             // 
             // FrmCadastro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(605, 396);
-            Controls.Add(textBox2);
+            ClientSize = new Size(691, 502);
+            Controls.Add(txtSenha);
             Controls.Add(button1);
             Controls.Add(btnEntrar);
             Controls.Add(label3);
-            Controls.Add(textBox3);
+            Controls.Add(txtNome);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtLogin);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmCadastro";
@@ -179,10 +172,10 @@
         private PictureBox pictureBox1;
         private Label label2;
         private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtSenha;
+        private TextBox txtLogin;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtNome;
         private Button btnEntrar;
         private Button button1;
     }
