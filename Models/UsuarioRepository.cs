@@ -10,6 +10,20 @@ namespace BookHub.Models
 {
     internal class UsuarioRepository
     {
+        /// <summary>
+        /// Responsavel por gerenciar as operações de dados do usuário no banco de dados 
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+
+        #region ..:: Metodos ::..
+
+        /// <summary>
+        /// Cadastra um novo usuário no banco de dados.
+        /// </summary>
+        /// <param name="usuario">Objeto do tipo <see cref="Usuario"/> contendo as informações a serem registradas.</param>
+        /// <returns>Retorna <c>true</c> se o usuário foi cadastrado com sucesso, caso contrário <c>false</c>.</returns>
+
         public bool CadastrarUsuario(Usuario usuario)
         {
             using (SqlConnection conn = new SqlConnection(DatabaseHelper.GetConnectionString()))
@@ -17,7 +31,7 @@ namespace BookHub.Models
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO USUARIOS (NOME, LOGIN, SENHA,DATA_CRIACAO ) VALUES (@Nome, @Login, @Senha, @DataCriacao)";
+                    string query = "INSERT INTO USUARIOS (NOME_USUARIO, LOGIN, SENHA,DATA_CRIACAO ) VALUES (@Nome, @Login, @Senha, @DataCriacao)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -39,6 +53,11 @@ namespace BookHub.Models
             }
         }
 
+        /// <summary>
+        /// Verifica se já existe login registrado no banco de dados.
+        /// </summary>
+        /// <param name="login">Login a ser verificado.</param>
+        /// <returns>Retorna <c>true</c> se o login já existe, caso contrário <c>false</c>.</returns>
         public bool LoginExistente(string login) 
         {
             string query = "SELECT COUNT(*) FROM USUARIOS WHERE LOGIN = @Login";
@@ -54,6 +73,8 @@ namespace BookHub.Models
                 }
             }
         }
+
+        #endregion ..:: Metodos ::..
     }
 }
 

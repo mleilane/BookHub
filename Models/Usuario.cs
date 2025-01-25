@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BookHub.Models
 {
+    /// <summary>
+    /// Representa um usuário no sistema, contendo as propriedades (ID, nome, login, senha e data de criação).
+    /// </summary>
+    
     internal class Usuario
     {
         public int Id { get; set; }

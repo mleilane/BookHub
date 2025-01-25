@@ -9,7 +9,11 @@ namespace BookHub.Models
 {
     internal class DatabaseHelper
     {
-        //acesso a string de conexao App.config
+        /// <summary>
+        /// Clase responsável por acessar a string de conexão no BD  definida no App.config.
+        /// </summary>
+        /// <returns></returns>
+        
         public static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["BookHubDBConnection"].ConnectionString;
@@ -18,4 +22,3 @@ namespace BookHub.Models
     }
 }
 
-//comentar mais?
