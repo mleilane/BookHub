@@ -35,8 +35,8 @@
             txtLogin = new TextBox();
             label3 = new Label();
             txtNome = new TextBox();
-            btnEntrar = new Button();
-            button1 = new Button();
+            btnCadastrarUser = new Button();
+            btnCancelarCadastro = new Button();
             txtSenha = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -102,36 +102,37 @@
             txtNome.Size = new Size(497, 40);
             txtNome.TabIndex = 1;
             // 
-            // btnEntrar
+            // btnCadastrarUser
             // 
-            btnEntrar.BackColor = Color.DarkSlateGray;
-            btnEntrar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            btnEntrar.ForeColor = SystemColors.Control;
-            btnEntrar.Image = Properties.Resources.salvar2;
-            btnEntrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEntrar.Location = new Point(99, 423);
-            btnEntrar.Name = "btnEntrar";
-            btnEntrar.Padding = new Padding(9, 0, 0, 0);
-            btnEntrar.Size = new Size(223, 46);
-            btnEntrar.TabIndex = 6;
-            btnEntrar.Text = "Cadastrar";
-            btnEntrar.UseVisualStyleBackColor = false;
-            btnEntrar.Click += btnEntrar_Click;
+            btnCadastrarUser.BackColor = Color.DarkSlateGray;
+            btnCadastrarUser.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            btnCadastrarUser.ForeColor = SystemColors.Control;
+            btnCadastrarUser.Image = Properties.Resources.salvar2;
+            btnCadastrarUser.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCadastrarUser.Location = new Point(99, 423);
+            btnCadastrarUser.Name = "btnCadastrarUser";
+            btnCadastrarUser.Padding = new Padding(9, 0, 0, 0);
+            btnCadastrarUser.Size = new Size(223, 46);
+            btnCadastrarUser.TabIndex = 6;
+            btnCadastrarUser.Text = "Cadastrar";
+            btnCadastrarUser.UseVisualStyleBackColor = false;
+            btnCadastrarUser.Click += btnCadastrarUser_Click_1;
             // 
-            // button1
+            // btnCancelarCadastro
             // 
-            button1.BackColor = Color.LightCoral;
-            button1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            button1.ForeColor = SystemColors.Control;
-            button1.Image = Properties.Resources.excluir_cancelar;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(374, 423);
-            button1.Name = "button1";
-            button1.Padding = new Padding(9, 0, 0, 0);
-            button1.Size = new Size(223, 46);
-            button1.TabIndex = 7;
-            button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = false;
+            btnCancelarCadastro.BackColor = Color.LightCoral;
+            btnCancelarCadastro.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            btnCancelarCadastro.ForeColor = SystemColors.Control;
+            btnCancelarCadastro.Image = Properties.Resources.excluir_cancelar;
+            btnCancelarCadastro.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancelarCadastro.Location = new Point(374, 423);
+            btnCancelarCadastro.Name = "btnCancelarCadastro";
+            btnCancelarCadastro.Padding = new Padding(9, 0, 0, 0);
+            btnCancelarCadastro.Size = new Size(223, 46);
+            btnCancelarCadastro.TabIndex = 7;
+            btnCancelarCadastro.Text = "Cancelar";
+            btnCancelarCadastro.UseVisualStyleBackColor = false;
+            btnCancelarCadastro.Click += btnCancelarCadastro_Click;
             // 
             // txtSenha
             // 
@@ -149,8 +150,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(691, 528);
             Controls.Add(txtSenha);
-            Controls.Add(button1);
-            Controls.Add(btnEntrar);
+            Controls.Add(btnCancelarCadastro);
+            Controls.Add(btnCadastrarUser);
             Controls.Add(label3);
             Controls.Add(txtNome);
             Controls.Add(pictureBox1);
@@ -177,7 +178,7 @@
         private TextBox txtLogin;
         private Label label3;
         private TextBox txtNome;
-        private Button btnEntrar;
-        private Button button1;
+        private Button btnCadastrarUser;
+        private Button btnCancelarCadastro;
     }
 }

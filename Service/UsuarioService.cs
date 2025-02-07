@@ -13,7 +13,7 @@ namespace BookHub.Service
     /// <summary>
     /// logica de cadastro e autenticação
     /// </summary>
-   
+
     internal class UsuarioService
     {
         private readonly UsuarioRepository _usuarioRepository;
@@ -36,9 +36,16 @@ namespace BookHub.Service
         /// </summary>
         /// <param name="usuario">Objeto do tipo <see cref="Usuario"/> contendo as informações a serem registradas.</param>
         /// <exception cref="Exception">Lança uma exceção se o login já estiver cadastrado.</exception>
-        
+
         public void CadastrarUsuario(Usuario usuario)
         {
+            // valida se os campos estao vazios 
+            if (string.IsNullOrWhiteSpace(usuario.Nome) ||
+                string.IsNullOrWhiteSpace(usuario.Login) ||
+                string.IsNullOrWhiteSpace(usuario.Senha))
+            {
+                throw new Exception("Todos os campos devem ser preenchidos!");
+            }
             if (_usuarioRepository.LoginExistente(usuario.Login))
             {
                 throw new Exception("Este login já está cadastrado!");
@@ -52,7 +59,7 @@ namespace BookHub.Service
         }
 
 
-        private string HashSenha(string senha) 
+        private string HashSenha(string senha)
         {
             using (SHA256 sha256 = SHA256.Create())
             {

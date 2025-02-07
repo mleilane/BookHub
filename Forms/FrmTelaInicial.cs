@@ -22,6 +22,7 @@ namespace BookHub
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+
             // criando uma instancia do formulario login
             FrmCadastro cadastroForm = new FrmCadastro();
 
@@ -29,9 +30,6 @@ namespace BookHub
             cadastroForm.ShowDialog();
         }
 
-        private void lblTitulo_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

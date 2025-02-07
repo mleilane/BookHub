@@ -13,7 +13,7 @@ namespace BookHub.Controller
     /// Controlador responsável por gerenciar as operações do usuário
     /// </summary>
 
-    
+
     internal class UsuarioController
     {
         private readonly UsuarioService _usuarioService;
@@ -38,6 +38,7 @@ namespace BookHub.Controller
         /// <param name="senha"></param>
         public void CadastrarUsuario(string nome, string login, string senha)
         {
+       
             try
             {
                 // Criação do objeto Usuario com os dados fornecidos
@@ -50,12 +51,11 @@ namespace BookHub.Controller
 
                 //chama a service para cadastrar o usuario no BD
                 _usuarioService.CadastrarUsuario(usuario);
-                MessageBox.Show("Usuário cadastrado com sucesso!");
+               
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar usuário: " + ex.Message);
-                throw;
+                throw new Exception("Erro ao cadastrar usuário: " + ex.Message);
             }
         }
 
