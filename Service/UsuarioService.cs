@@ -71,7 +71,38 @@ namespace BookHub.Service
             }
         }
 
-        #endregion ..:: Métodos ::..
+        /// <summary>
+        /// Método para validar os dados de login e senha e realizar a busca no banco
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <exception cref="Exception"></exception>
+        public void LoginUsuario(Usuario usuario)
+        {
+            // campos obrigatórios preenchidos?
+            if (string.IsNullOrWhiteSpace(usuario.Login) || string.IsNullOrWhiteSpace(usuario.Senha))
+            {
+                throw new Exception("Os campos de login e senha são obrigatórios!"); //lança exceção se estiverem vazios
+            }
+
+            // Busca no BD usuário com o login informado
+            Usuario usuarioEncontrado = _usuarioRepository.BuscarUsuarioPorLogin(usuario.Login);
+
+            // Verifica se o usuário foi encontrado
+            if (usuarioEncontrado == null)
+            {
+                throw new Exception("Usuário não encontrado!");
+            }
+
+            // Verifica se a senha fornecida corresponde à senha cadastrada 
+            if (usuarioEncontrado.Senha != HashSenha(usuario.Senha))
+            {
+                throw new Exception("Senha inválida!");
+            }
+        }
+
     }
+
+    #endregion ..:: Métodos ::..
 }
+
 

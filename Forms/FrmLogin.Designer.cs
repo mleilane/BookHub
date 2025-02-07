@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtLogin = new TextBox();
+            txtSenha = new TextBox();
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
@@ -37,25 +37,24 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // txtLogin
             // 
-            textBox1.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox1.Location = new Point(57, 223);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(553, 44);
-            textBox1.TabIndex = 0;
+            txtLogin.Font = new Font("Microsoft Sans Serif", 9F);
+            txtLogin.Location = new Point(57, 223);
+            txtLogin.Multiline = true;
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(553, 44);
+            txtLogin.TabIndex = 0;
             // 
-            // textBox2
+            // txtSenha
             // 
-            textBox2.Font = new Font("Microsoft Sans Serif", 9F);
-            textBox2.Location = new Point(57, 323);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(553, 44);
-            textBox2.TabIndex = 1;
-            textBox2.UseSystemPasswordChar = true;
+            txtSenha.Font = new Font("Microsoft Sans Serif", 9F);
+            txtSenha.Location = new Point(57, 323);
+            txtSenha.Multiline = true;
+            txtSenha.Name = "txtSenha";
+            txtSenha.PasswordChar = '*';
+            txtSenha.Size = new Size(553, 44);
+            txtSenha.TabIndex = 1;
             // 
             // label1
             // 
@@ -114,8 +113,8 @@
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtSenha);
+            Controls.Add(txtLogin);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "FrmLogin";
@@ -128,8 +127,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtLogin;
+        private TextBox txtSenha;
         private Label label1;
         private Label label2;
         private PictureBox pictureBox1;

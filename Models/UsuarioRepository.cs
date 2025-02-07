@@ -74,6 +74,37 @@ namespace BookHub.Models
             }
         }
 
+        internal Usuario BuscarUsuarioPorLogin(string login)
+        {
+            Usuario usuario = null;
+
+            string query = "SELECT Login, Senha FROM Usuarios WHERE Login = @Login";
+
+            using (SqlConnection conn = new SqlConnection(DatabaseHelper.GetConnectionString()))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Login", login);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuario = new Usuario
+                            {
+                                Login = reader["Login"].ToString(),
+                                Senha = reader["Senha"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+
+            return usuario;
+
+        }
+
         #endregion ..:: Metodos ::..
     }
 }

@@ -32,7 +32,7 @@
             lblTitulo = new Label();
             imgCapa = new PictureBox();
             btnCadastrar = new Button();
-            btnEntrar = new Button();
+            btnFazerLogin = new Button();
             panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)imgCapa).BeginInit();
             panel1.SuspendLayout();
@@ -81,27 +81,27 @@
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
-            // btnEntrar
+            // btnFazerLogin
             // 
-            btnEntrar.Anchor = AnchorStyles.None;
-            btnEntrar.BackColor = Color.DarkSlateGray;
-            btnEntrar.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
-            btnEntrar.ForeColor = SystemColors.Control;
-            btnEntrar.Image = Properties.Resources.cadeado;
-            btnEntrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEntrar.Location = new Point(519, 509);
-            btnEntrar.Name = "btnEntrar";
-            btnEntrar.Padding = new Padding(8, 0, 0, 0);
-            btnEntrar.Size = new Size(213, 45);
-            btnEntrar.TabIndex = 3;
-            btnEntrar.Text = "Fazer Login";
-            btnEntrar.UseVisualStyleBackColor = false;
-            btnEntrar.Click += btnEntrar_Click;
+            btnFazerLogin.Anchor = AnchorStyles.None;
+            btnFazerLogin.BackColor = Color.DarkSlateGray;
+            btnFazerLogin.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
+            btnFazerLogin.ForeColor = SystemColors.Control;
+            btnFazerLogin.Image = Properties.Resources.cadeado;
+            btnFazerLogin.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFazerLogin.Location = new Point(519, 509);
+            btnFazerLogin.Name = "btnFazerLogin";
+            btnFazerLogin.Padding = new Padding(8, 0, 0, 0);
+            btnFazerLogin.Size = new Size(213, 45);
+            btnFazerLogin.TabIndex = 3;
+            btnFazerLogin.Text = "Fazer Login";
+            btnFazerLogin.UseVisualStyleBackColor = false;
+            btnFazerLogin.Click += btnFazerLogin_Click;
             // 
             // panel1
             // 
             panel1.Controls.Add(btnCadastrar);
-            panel1.Controls.Add(btnEntrar);
+            panel1.Controls.Add(btnFazerLogin);
             panel1.Controls.Add(imgCapa);
             panel1.Controls.Add(lblTitulo);
             panel1.Dock = DockStyle.Fill;
@@ -133,7 +133,7 @@
         private Label lblTitulo;
         private PictureBox imgCapa;
         private Button btnCadastrar;
-        private Button btnEntrar;
+        private Button btnFazerLogin;
         private Panel panel1;
     }
 }

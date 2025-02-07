@@ -10,16 +10,7 @@ namespace BookHub
         }
 
 
-        //evento de click no botao entrar e cadastrar
-        private void btnEntrar_Click(object sender, EventArgs e)
-        {
-            // criando uma instancia do formulario login
-            FrmLogin loginForm = new FrmLogin();
-
-            //abre o form login como uma janela modal 
-            loginForm.ShowDialog();
-        }
-
+        //evento de click no botao cadastro e login
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
@@ -30,6 +21,13 @@ namespace BookHub
             cadastroForm.ShowDialog();
         }
 
+        private void btnFazerLogin_Click(object sender, EventArgs e)
+        {
+            // criando uma instancia do formulario login
+            FrmLogin loginForm = new FrmLogin();
 
+            //abre o form login como uma janela modal 
+            loginForm.ShowDialog();
+        }
     }
 }

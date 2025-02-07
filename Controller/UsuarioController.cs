@@ -1,10 +1,13 @@
-﻿using BookHub.Models;
+﻿using BookHub.Forms;
+using BookHub.Models;
 using BookHub.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BookHub.Controller
 {
@@ -38,7 +41,7 @@ namespace BookHub.Controller
         /// <param name="senha"></param>
         public void CadastrarUsuario(string nome, string login, string senha)
         {
-       
+
             try
             {
                 // Criação do objeto Usuario com os dados fornecidos
@@ -51,7 +54,7 @@ namespace BookHub.Controller
 
                 //chama a service para cadastrar o usuario no BD
                 _usuarioService.CadastrarUsuario(usuario);
-               
+
             }
             catch (Exception ex)
             {
@@ -59,6 +62,35 @@ namespace BookHub.Controller
             }
         }
 
+        /// <summary>
+        /// Método para chamar o service de login e retornar se o login foi bem-sucedido ou não
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        public bool LoginUsuario(Usuario usuario)
+        {
+            try
+            {
+                // Cria uma instância da Service para chamar a lógica de login
+                UsuarioService service = new UsuarioService();
+
+                // Chama o método LoginUsuario na Service para validar o login
+                service.LoginUsuario(usuario);
+
+                // Se não lançar exceção, o login foi bem-sucedido
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message,
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                // Retorna falso caso ocorra um erro
+                return false; 
+            }
+        }
         #endregion ..:: Metodos ::..
     }
 }
