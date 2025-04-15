@@ -34,6 +34,7 @@
             label2 = new Label();
             pictureBox1 = new PictureBox();
             btnEntrar = new Button();
+            chkLembrarMe = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             txtLogin.Location = new Point(57, 223);
             txtLogin.Multiline = true;
             txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(553, 44);
+            txtLogin.Size = new Size(553, 43);
             txtLogin.TabIndex = 0;
             // 
             // txtSenha
@@ -53,7 +54,7 @@
             txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
-            txtSenha.Size = new Size(553, 44);
+            txtSenha.Size = new Size(553, 48);
             txtSenha.TabIndex = 1;
             // 
             // label1
@@ -104,11 +105,22 @@
             btnEntrar.UseVisualStyleBackColor = false;
             btnEntrar.Click += btnEntrar_Click;
             // 
+            // chkLembrarMe
+            // 
+            chkLembrarMe.AutoSize = true;
+            chkLembrarMe.Location = new Point(497, 435);
+            chkLembrarMe.Name = "chkLembrarMe";
+            chkLembrarMe.Size = new Size(113, 24);
+            chkLembrarMe.TabIndex = 5;
+            chkLembrarMe.Text = "Lembrar-me";
+            chkLembrarMe.UseVisualStyleBackColor = true;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(691, 528);
+            Controls.Add(chkLembrarMe);
             Controls.Add(btnEntrar);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
@@ -133,5 +145,6 @@
         private Label label2;
         private PictureBox pictureBox1;
         private Button btnEntrar;
+        private CheckBox chkLembrarMe;
     }
 }

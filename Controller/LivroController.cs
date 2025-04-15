@@ -11,7 +11,19 @@ namespace BookHub.Controller
 {
     internal class LivroController
     {
-        private LivroService _livroService;
+        private readonly  LivroService _livroService;
+
+        // Construtor adicionando a inicialização de _livroService
+        public LivroController()
+        {
+            _livroService = new LivroService();
+        }
+
+
+        public List<Livro> ObterTodosLivros()
+        {
+            return _livroService.ObterTodosLivros();
+        }
 
         public bool CadastrarLivro(Livro livro)
         {
@@ -41,7 +53,7 @@ namespace BookHub.Controller
 
                 if (resultadoMensagem == DialogResult.OK)
                 {
-                    // Se o usuário clicar em OK, tenta atualizar o livro com a nova quantidade
+                    // Se o usuário clicar em OK, adiciona + um na  quantidade
                     bool atualizacao = _livroService.CadastrarLivro(livro); // Chama novamente a service para atualizar
 
                     if (atualizacao)
@@ -75,6 +87,59 @@ namespace BookHub.Controller
             }
         }
 
+        public Livro BuscarLivroPorTitulo(string titulo)
+        {
+            return _livroService.BuscarLivroPorTitulo(titulo);
+        }
+
+        public Livro BuscarLivroPorIsbn(string isbn)
+        {
+            return _livroService.BuscarLivroPorIsbn(isbn);
+        }
+
+        public Livro BuscarLivroPorAutor(string autor)
+        {
+            return _livroService.BuscarLivroPorAutor(autor);
+        }
+
+
+        public bool ExcluirLivro(int id)
+        {
+            var resultado = MessageBox.Show(
+                "Tem certeza que deseja excluir este livro?",
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                bool sucesso = _livroService.ExcluirLivro(id);
+
+                if (sucesso)
+                {
+                    MessageBox.Show(
+                        "Livro excluído com sucesso!",
+                        "Exclusão Realizada",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Erro ao tentar excluir o livro. Tente novamente.",
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return false;
+                }
+            }
+
+            return false;
+        }
     }
 }
 

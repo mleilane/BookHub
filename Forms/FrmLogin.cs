@@ -19,6 +19,25 @@ namespace BookHub.Forms
         public FrmLogin()
         {
             InitializeComponent();
+
+            // Impede o Enter no campo de login
+            txtLogin.KeyPress += (sender, e) =>
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    e.Handled = true; // Impede a quebra de linha no campo de login
+                }
+            };
+
+            // Chamando o evento de login quando pressionar Enter no campo de senha
+            txtSenha.KeyPress += (sender, e) =>
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    btnEntrar_Click(sender, e); // Chama o evento de login
+                }
+            };
+
         }
 
         #endregion ..:: Construtor ::..
@@ -28,9 +47,10 @@ namespace BookHub.Forms
         {
             try
             {
-                // Captura os valores de login e senha
+                // Captura os valores digitados
                 string loginUsuario = txtLogin.Text;
                 string senhaUsuario = txtSenha.Text;
+                bool lembrarLogin = chkLembrarMe.Checked;
 
                 // Valida se os campos estão preenchidos
                 if (string.IsNullOrWhiteSpace(loginUsuario) || string.IsNullOrWhiteSpace(senhaUsuario))
@@ -42,20 +62,37 @@ namespace BookHub.Forms
                     return;
                 }
 
-                // Cria uma instância de UsuarioController para realizar o login
-                UsuarioController usuarioController = new UsuarioController();
 
-                // Cria uma instância de Usuario para passar os dados ao controlador
-                Usuario usuarioObj = new Usuario { Login = loginUsuario, Senha = senhaUsuario };
+                UsuarioController usuarioController = new UsuarioController();  // instância de UsuarioController para realizar o login
+
+                // Cria objeto com os do login digitado
+                Usuario usuarioObj = new Usuario
+                {
+                    Login = loginUsuario,
+                    Senha = senhaUsuario
+                };
+
 
                 // Tenta realizar o login
                 bool loginBemSucedido = usuarioController.LoginUsuario(usuarioObj);
 
+
                 if (loginBemSucedido)
                 {
-                    // Abrir a tela TodosLivros se o login for bem-sucedido
+                    LoginController loginController = new LoginController();
+                    int? usuarioId = loginController.VerificarLoginAutomatico();  // Verifica login salvo automaticamente
+
+                    //salva login automatico, se a opção estiver marcada 
+                    if (usuarioId.HasValue)
+                    {
+                        loginController.SalvarLogin(usuarioId.Value, lembrarLogin);
+                    }
+
+                    // Abre a proxima tela (TodosLivros) 
                     FrmAcervoCompleto telaTodosLivros = new FrmAcervoCompleto();
                     telaTodosLivros.Show();
+
+                    this.Hide();
                 }
                 else
                 {
@@ -74,7 +111,7 @@ namespace BookHub.Forms
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Error);
             }
-            
+
         }
         #endregion ..:: Eventos ::..
     }

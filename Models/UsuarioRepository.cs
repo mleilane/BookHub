@@ -45,7 +45,7 @@ namespace BookHub.Models
                         return rows > 0;
                     }
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao cadastrar usuário" + ex.Message);
                     return false;
@@ -58,7 +58,7 @@ namespace BookHub.Models
         /// </summary>
         /// <param name="login">Login a ser verificado.</param>
         /// <returns>Retorna <c>true</c> se o login já existe, caso contrário <c>false</c>.</returns>
-        public bool LoginExistente(string login) 
+        public bool LoginExistente(string login)
         {
             string query = "SELECT COUNT(*) FROM USUARIOS WHERE LOGIN = @Login";
 
@@ -105,6 +105,59 @@ namespace BookHub.Models
 
         }
 
+
+        //Verifica se o usuario ja salvou login nesse dispositivo 
+        public int? ObterUsuarioPorDispositivo(string dispositivo)
+        {
+            string query = "SELECT ID_USUARIO FROM LEMBRAR_ME WHERE DISPOTIVO = @Dispositivo";
+
+            using (SqlConnection conn = new SqlConnection(DatabaseHelper.GetConnectionString()))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Dispositivo", dispositivo);
+
+                    var result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                }
+            }
+        }
+
+
+        //Salva login automatico 
+        public void SalvarLoginAutomatico(int idUsuario, string dispositivo)
+        {
+
+            if (ObterUsuarioPorDispositivo(dispositivo).HasValue)
+            {
+                return; //ja salvo, nao precisa inserir de novo
+            }
+
+            string query = " INSERT INTO LEMBRAR_ME (ID_USUARIO, DISPOSITIVO, DATA_CRIACAO) VALUES (@IdUsuario, @Dispositivo, @DataCriacao)";
+
+            using (SqlConnection conn = new SqlConnection(DatabaseHelper.GetConnectionString()))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    cmd.Parameters.AddWithValue("@Dispositivo", dispositivo);
+                    cmd.Parameters.AddWithValue("@DataCriacao", DateTime.Now);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
         #endregion ..:: Metodos ::..
     }
 }

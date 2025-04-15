@@ -8,12 +8,41 @@ using System.Threading.Tasks;
 namespace BookHub.Service
 {
 
-
     internal class LivroService
     {
         private LivroRepository _livroRepository;
 
 
+        public LivroService()
+        {
+            _livroRepository = new LivroRepository();
+        }
+
+        #region ..:: C (CREATE) - CRIAR ::..
+
+        public bool CadastrarLivro(Livro livro)
+        {
+
+            //verifica se já existe no bd
+            Livro livroExistente = _livroRepository.BuscarLivroPorTitulo(livro.Titulo);
+
+            if (livroExistente != null) //livroja existe no bd
+            {
+                //  atualiza a quantidade de livros
+                livroExistente.Quantidade += livro.Quantidade;
+                return _livroRepository.AtualizarLivro(livroExistente);
+
+            }
+
+            // Se não existir, cadastra o novo livro
+            return _livroRepository.CadastrarLivro(livro);
+        }
+
+
+        #endregion ..:: C (CREATE) - CRIAR ::..
+
+
+        #region ..:: R (READ) - LER ::..
 
         public List<Livro> ObterTodosLivros()
         {
@@ -36,32 +65,27 @@ namespace BookHub.Service
         }
 
 
-        public bool CadastrarLivro(Livro livro)
-        {
+        #endregion ..:: R (READ) - LER ::..
 
-            //verifica se já existe no bd
-            Livro livroExistente = _livroRepository.BuscarLivroPorTitulo(livro.Titulo);
 
-            if (livroExistente != null) //livroja existe no bd
-            {
-                //  atualiza a quantidade de livros
-                livroExistente.Quantidade += livro.Quantidade;
-                return _livroRepository.AtualizarLivro(livroExistente);
+        #region ..:: U (UPDATE) - ATUALIZAR ::..
 
-            }
-
-            // Se não existir, cadastra o novo livro
-            return _livroRepository.CadastrarLivro(livro);
-        }
 
         public bool AtualizaLivro(Livro livro)
         {
             return _livroRepository.AtualizarLivro(livro);
         }
 
+        #endregion ..:: U (UPDATE) - ATUALIZAR ::..
+
+
+        #region ..:: D (DELETE) - EXCLUIR ::..
+
         public bool ExcluirLivro(int id)
         {
             return _livroRepository.ExcluirLivro(id);
         }
+
+        #endregion ..:: D (DELETE) - EXCLUIR ::..
     }
 }
