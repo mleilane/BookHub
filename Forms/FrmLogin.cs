@@ -79,20 +79,28 @@ namespace BookHub.Forms
 
                 if (loginBemSucedido)
                 {
-                    LoginController loginController = new LoginController();
+                    UsuarioController loginController = new UsuarioController();
                     int? usuarioId = loginController.VerificarLoginAutomatico();  // Verifica login salvo automaticamente
 
                     //salva login automatico, se a opção estiver marcada 
-                    if (usuarioId.HasValue)
+                    if (lembrarLogin)
                     {
-                        loginController.SalvarLogin(usuarioId.Value, lembrarLogin);
+                        int idUsuarioLogado = usuarioController.ObterIdUsuarioPorLogin(usuarioObj.Login);
+
+                        if(idUsuarioLogado != 0)
+                        {
+                            usuarioController.SalvarLogin(idUsuarioLogado, true);
+                        }
+                        //loginController.SalvarLogin(usuarioId.Value, lembrarLogin);
                     }
+
+                    this.Hide();//esconde a tela inial apos login
 
                     // Abre a proxima tela (TodosLivros) 
                     FrmAcervoCompleto telaTodosLivros = new FrmAcervoCompleto();
-                    telaTodosLivros.Show();
+                    telaTodosLivros.ShowDialog();
+                    telaTodosLivros.Activate();
 
-                    this.Hide();
                 }
                 else
                 {

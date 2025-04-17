@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace BookHub.Service
 {
     /// <summary>
-    /// logica de cadastro e autenticação
+    /// Responsável pelas regras de negocio 
     /// </summary>
 
     internal class UsuarioService
@@ -25,9 +25,9 @@ namespace BookHub.Service
             _usuarioRepository = new UsuarioRepository();
         }
 
-        #endregion ..:: Construtor ::..
+        #endregion 
 
-        #region ..:: Métodos ::..
+        #region ..:: Métodos - Cadastro e Login ::..
 
         /// <summary>
         /// Realiza o cadastro do usuário no sistema
@@ -100,9 +100,42 @@ namespace BookHub.Service
             }
         }
 
+        #endregion
+
+        #region ..:: Métodos - Login Automatico ::..
+
+        //verifica se ja tem login salvo
+        public int? VerificarLoginAutomatico()// int? = numero inteiro ou nada
+        {
+            string dispositivo = ObterNomeDoDispositivo();
+
+            //busca o ID do usuario com login salvo 
+            return _usuarioRepository.ObterUsuarioPorDispositivo(dispositivo);
+        }
+
+        //Salva login automatico
+        public void SalvarLoginAutomatico(int idUsuario)
+        {
+            string dispositivo = ObterNomeDoDispositivo();
+            _usuarioRepository.SalvarLoginAutomatico(idUsuario, dispositivo);
+        }
+
+        //utiliza o nome do pc atual como identificador
+        private string ObterNomeDoDispositivo()
+        {
+            return Environment.MachineName;
+        }
+
+        public int ObterIdUsuarioPorLogin(string login)
+        {
+            return _usuarioRepository.ObterIdUsuarioPorLogin(login);
+        }
+
+        #endregion
     }
 
-    #endregion ..:: Métodos ::..
 }
+
+
 
 

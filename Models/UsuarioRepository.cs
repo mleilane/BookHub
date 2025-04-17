@@ -16,7 +16,7 @@ namespace BookHub.Models
         /// <param name="usuario"></param>
         /// <returns></returns>
 
-        #region ..:: Metodos ::..
+        #region ..:: Metodos - Cadastro e Login ::..
 
         /// <summary>
         /// Cadastra um novo usuário no banco de dados.
@@ -104,12 +104,15 @@ namespace BookHub.Models
             return usuario;
 
         }
+        #endregion 
+
+        #region ..:: Metodos - Login Automatico::..
 
 
         //Verifica se o usuario ja salvou login nesse dispositivo 
         public int? ObterUsuarioPorDispositivo(string dispositivo)
         {
-            string query = "SELECT ID_USUARIO FROM LEMBRAR_ME WHERE DISPOTIVO = @Dispositivo";
+            string query = "SELECT ID_USUARIO FROM LEMBRAR_ME WHERE DISPOSITIVO = @Dispositivo";
 
             using (SqlConnection conn = new SqlConnection(DatabaseHelper.GetConnectionString()))
             {
@@ -158,7 +161,32 @@ namespace BookHub.Models
                 }
             }
         }
-        #endregion ..:: Metodos ::..
+
+        public int ObterIdUsuarioPorLogin(string login)
+        {
+            string query = "SELECT ID FROM USUARIOS WHERE LOGIN = @Login";
+            using (SqlConnection conn = new SqlConnection(DatabaseHelper.GetConnectionString()))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Login", login);
+
+                    var result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+
+        }
+        #endregion
     }
 }
 

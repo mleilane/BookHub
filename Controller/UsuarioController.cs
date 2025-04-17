@@ -30,7 +30,7 @@ namespace BookHub.Controller
 
         #endregion ..:: Construtor ::..
 
-        #region ..:: Metodos ::..
+        #region ..:: Metodos - Cadastro e Login ::..
 
         /// <summary>
         /// Esse metodo realiza o cadastro de usuários com os dados fornecidos 
@@ -91,6 +91,30 @@ namespace BookHub.Controller
                 return false; 
             }
         }
-        #endregion ..:: Metodos ::..
+        #endregion 
+
+
+        #region ..:: Metodos - Login Automático ::..
+
+        //verifica se tem login salvo
+        public int? VerificarLoginAutomatico()
+        {
+            return _usuarioService.VerificarLoginAutomatico();
+        }
+
+        public void SalvarLogin(int idUsuario, bool lembrarLogin)
+        {
+            if (lembrarLogin)
+            {
+                _usuarioService.SalvarLoginAutomatico(idUsuario);
+            }
+
+        }
+
+        public int ObterIdUsuarioPorLogin(string login)
+        {
+            return _usuarioService.ObterIdUsuarioPorLogin(login);
+        }
+        #endregion
     }
 }
