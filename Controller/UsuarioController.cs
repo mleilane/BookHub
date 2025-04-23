@@ -115,6 +115,11 @@ namespace BookHub.Controller
         {
             return _usuarioService.ObterIdUsuarioPorLogin(login);
         }
+
+        public Usuario BuscarUsuarioLembrado(int idUsuario)
+        {
+            return _usuarioService.BuscarUsuarioLembrado(idUsuario);
+        }
         #endregion
     }
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using BookHub.Models;
 
-namespace BookHub.Models
+namespace BookHub.Repository
 {
     internal class UsuarioRepository
     {
@@ -184,7 +186,42 @@ namespace BookHub.Models
                     }
                 }
             }
+        }
 
+
+        public Usuario BuscarUsuarioLembrado(int idUsuario)
+        {
+            const string query = @"
+                                SELECT 
+                                    U.ID, 
+                                    U.Login, 
+                                    U.Senha 
+                                FROM USUARIOS U
+                                INNER JOIN LEMBRAR_ME L 
+                                    ON U.ID = L.ID_USUARIO
+                                WHERE L.ID_USUARIO = @idUsuario";
+
+            using (var conn = new SqlConnection(DatabaseHelper.GetConnectionString()))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+                conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new Usuario
+                        {
+                            Id = Convert.ToInt32(reader["ID"]),
+                            Login = reader["Login"].ToString(),
+                            Senha = reader["Senha"].ToString()
+                        };
+                    }
+                }
+            }
+
+            return null;
         }
         #endregion
     }

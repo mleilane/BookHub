@@ -11,7 +11,7 @@ namespace BookHub.Controller
 {
     internal class LivroController
     {
-        private readonly  LivroService _livroService;
+        private readonly LivroService _livroService;
 
         // Construtor adicionando a inicialização de _livroService
         public LivroController()
@@ -28,64 +28,42 @@ namespace BookHub.Controller
         public bool CadastrarLivro(Livro livro)
         {
             // Chama a service para verificar a existência do livro e tentar cadastrá-lo
-            bool resultado = _livroService.CadastrarLivro(livro);
+            var resultado = _livroService.CadastrarLivro(livro);
 
-            if (resultado)
+            switch (resultado)
             {
-                // Exibe uma MessageBox indicando que o livro foi cadastrado com sucesso
-                MessageBox.Show(
-                    "Livro cadastrado com sucesso!",
-                    "Cadastro Realizado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-                return true; // Operação bem-sucedida
-            }
-            else
-            {
-                // Exibe a MessageBox caso o livro já exista no banco
-                var resultadoMensagem = MessageBox.Show(
-                    "O livro já está cadastrado. Deseja adicionar mais um na quantidade?",
-                    "Livro já cadastrado",
-                    MessageBoxButtons.OKCancel,
-                    MessageBoxIcon.Question
-                );
+                case ResultadoCadastro.NovoCadastro:
+                    MessageBox.Show(
+                         "Livro cadastrado com sucesso!",
+                         "Cadastro Realizado",
+                         MessageBoxButtons.OK,
+                         MessageBoxIcon.Information
+                    );
+                    return true;
 
-                if (resultadoMensagem == DialogResult.OK)
-                {
-                    // Se o usuário clicar em OK, adiciona + um na  quantidade
-                    bool atualizacao = _livroService.CadastrarLivro(livro); // Chama novamente a service para atualizar
+                case ResultadoCadastro.AtualizacaoQuantidade:
+                    MessageBox.Show(
+                        "O livro já estava cadastrado. A quantidade foi atualizada com sucesso!",
+                        "Livro Atualizado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                    return true;
 
-                    if (atualizacao)
-                    {
-                        // Exibe uma MessageBox indicando que a quantidade foi atualizada
-                        MessageBox.Show(
-                            "Quantidade de livros atualizada com sucesso!",
-                            "Atualização Realizada",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
-                        return true;
-                    }
-                    else
-                    {
-                        // Se houve um erro na atualização, exibe uma mensagem de erro
-                        MessageBox.Show(
-                            "Erro ao tentar atualizar a quantidade do livro. Tente novamente.",
-                            "Erro",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                        );
-                        return false;
-                    }
-                }
-                else
-                {
-                    // Se o usuário clicar em Cancelar, cancela a operação
+                case ResultadoCadastro.Erro:
+                    MessageBox.Show(
+                        "Ocorreu um erro ao tentar cadastrar o livro.",
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+
                     return false;
-                }
             }
+
+            return false;
         }
+
 
         public Livro BuscarLivroPorTitulo(string titulo)
         {
@@ -142,6 +120,7 @@ namespace BookHub.Controller
         }
     }
 }
+
 
 
 

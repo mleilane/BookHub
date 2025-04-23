@@ -54,8 +54,8 @@
             label11 = new Label();
             txtQtdAddLivro = new TextBox();
             lbllido = new Label();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
+            rbtnSim = new RadioButton();
+            rbtnNao = new RadioButton();
             btnCancelarLivro = new Button();
             btnSalvar = new Button();
             btnAddLivro = new Button();
@@ -92,6 +92,7 @@
             btnAddLivro.TabIndex = 47;
             btnAddLivro.Text = "Adicionar";
             btnAddLivro.UseVisualStyleBackColor = false;
+            btnAddLivro.Click += btnAddLivro_Click;
             // 
             // label3
             // 
@@ -244,7 +245,7 @@
             lblautor.ForeColor = Color.DarkSlateGray;
             lblautor.Location = new Point(26, 154);
             lblautor.Name = "lblautor";
-            lblautor.Size = new Size(40, 15);
+            lblautor.Size = new Size(48, 18);
             lblautor.TabIndex = 17;
             lblautor.Text = "Autor";
             // 
@@ -255,7 +256,7 @@
             lbltitulo.ForeColor = Color.DarkSlateGray;
             lbltitulo.Location = new Point(23, 103);
             lbltitulo.Name = "lbltitulo";
-            lbltitulo.Size = new Size(43, 15);
+            lbltitulo.Size = new Size(50, 18);
             lbltitulo.TabIndex = 16;
             lbltitulo.Text = "Titulo";
             // 
@@ -266,7 +267,6 @@
             txtAutorAddLivro.Margin = new Padding(3, 2, 3, 2);
             txtAutorAddLivro.Multiline = true;
             txtAutorAddLivro.Name = "txtAutorAddLivro";
-            txtAutorAddLivro.PasswordChar = '*';
             txtAutorAddLivro.Size = new Size(477, 34);
             txtAutorAddLivro.TabIndex = 15;
             // 
@@ -287,7 +287,7 @@
             lblTituloAddLivro.ForeColor = Color.DarkSlateGray;
             lblTituloAddLivro.Location = new Point(172, 30);
             lblTituloAddLivro.Name = "lblTituloAddLivro";
-            lblTituloAddLivro.Size = new Size(187, 29);
+            lblTituloAddLivro.Size = new Size(231, 36);
             lblTituloAddLivro.TabIndex = 28;
             lblTituloAddLivro.Text = "Adicionar Livro";
             // 
@@ -298,7 +298,7 @@
             lblisbn.ForeColor = Color.DarkSlateGray;
             lblisbn.Location = new Point(27, 203);
             lblisbn.Name = "lblisbn";
-            lblisbn.Size = new Size(39, 15);
+            lblisbn.Size = new Size(46, 18);
             lblisbn.TabIndex = 30;
             lblisbn.Text = "ISBN";
             // 
@@ -309,7 +309,6 @@
             txtIsbnAddLivro.Margin = new Padding(3, 2, 3, 2);
             txtIsbnAddLivro.Multiline = true;
             txtIsbnAddLivro.Name = "txtIsbnAddLivro";
-            txtIsbnAddLivro.PasswordChar = '*';
             txtIsbnAddLivro.Size = new Size(223, 34);
             txtIsbnAddLivro.TabIndex = 29;
             // 
@@ -320,7 +319,7 @@
             label11.ForeColor = Color.DarkSlateGray;
             label11.Location = new Point(333, 202);
             label11.Name = "label11";
-            label11.Size = new Size(33, 15);
+            label11.Size = new Size(40, 18);
             label11.TabIndex = 32;
             label11.Text = "Qtd.";
             // 
@@ -331,7 +330,6 @@
             txtQtdAddLivro.Margin = new Padding(3, 2, 3, 2);
             txtQtdAddLivro.Multiline = true;
             txtQtdAddLivro.Name = "txtQtdAddLivro";
-            txtQtdAddLivro.PasswordChar = '*';
             txtQtdAddLivro.Size = new Size(196, 34);
             txtQtdAddLivro.TabIndex = 31;
             // 
@@ -342,35 +340,35 @@
             lbllido.ForeColor = Color.DarkSlateGray;
             lbllido.Location = new Point(27, 248);
             lbllido.Name = "lbllido";
-            lbllido.Size = new Size(43, 15);
+            lbllido.Size = new Size(49, 18);
             lbllido.TabIndex = 33;
             lbllido.Text = "Lido?";
             // 
-            // radioButton3
+            // rbtnSim
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Font = new Font("Microsoft Sans Serif", 9F);
-            radioButton3.ForeColor = Color.DarkSlateGray;
-            radioButton3.Location = new Point(91, 248);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(47, 19);
-            radioButton3.TabIndex = 34;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Sim";
-            radioButton3.UseVisualStyleBackColor = true;
+            rbtnSim.AutoSize = true;
+            rbtnSim.Font = new Font("Microsoft Sans Serif", 9F);
+            rbtnSim.ForeColor = Color.DarkSlateGray;
+            rbtnSim.Location = new Point(91, 248);
+            rbtnSim.Name = "rbtnSim";
+            rbtnSim.Size = new Size(55, 22);
+            rbtnSim.TabIndex = 34;
+            rbtnSim.TabStop = true;
+            rbtnSim.Text = "Sim";
+            rbtnSim.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbtnNao
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Font = new Font("Microsoft Sans Serif", 9F);
-            radioButton4.ForeColor = Color.DarkSlateGray;
-            radioButton4.Location = new Point(193, 248);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(48, 19);
-            radioButton4.TabIndex = 35;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Não";
-            radioButton4.UseVisualStyleBackColor = true;
+            rbtnNao.AutoSize = true;
+            rbtnNao.Font = new Font("Microsoft Sans Serif", 9F);
+            rbtnNao.ForeColor = Color.DarkSlateGray;
+            rbtnNao.Location = new Point(193, 248);
+            rbtnNao.Name = "rbtnNao";
+            rbtnNao.Size = new Size(57, 22);
+            rbtnNao.TabIndex = 35;
+            rbtnNao.TabStop = true;
+            rbtnNao.Text = "Não";
+            rbtnNao.UseVisualStyleBackColor = true;
             // 
             // btnCancelarLivro
             // 
@@ -387,14 +385,15 @@
             btnCancelarLivro.TabIndex = 46;
             btnCancelarLivro.Text = "Cancelar";
             btnCancelarLivro.UseVisualStyleBackColor = false;
+            btnCancelarLivro.Click += btnCancelarLivro_Click;
             // 
             // FrmCadastroDeLivros
             // 
             ClientSize = new Size(605, 396);
             Controls.Add(btnAddLivro);
             Controls.Add(btnCancelarLivro);
-            Controls.Add(radioButton4);
-            Controls.Add(radioButton3);
+            Controls.Add(rbtnNao);
+            Controls.Add(rbtnSim);
             Controls.Add(lbllido);
             Controls.Add(label11);
             Controls.Add(txtQtdAddLivro);
@@ -436,8 +435,8 @@
         private Label label11;
         private TextBox txtQtdAddLivro;
         private Label lbllido;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
+        private RadioButton rbtnSim;
+        private RadioButton rbtnNao;
         private Button btnCancelarLivro;
     }
 }

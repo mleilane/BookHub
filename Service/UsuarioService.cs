@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using static System.Resources.ResXFileRef;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using BookHub.Repository;
 
 namespace BookHub.Service
 {
@@ -129,6 +130,18 @@ namespace BookHub.Service
         public int ObterIdUsuarioPorLogin(string login)
         {
             return _usuarioRepository.ObterIdUsuarioPorLogin(login);
+        }
+
+
+        public Usuario BuscarUsuarioLembrado(int idUsuario)
+        {
+            //Busca o objeto com a senha criptografada
+            var usuario = _usuarioRepository.BuscarUsuarioLembrado(idUsuario);
+
+            if (usuario != null)
+                usuario.Senha ="";
+
+            return usuario;
         }
 
         #endregion

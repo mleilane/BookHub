@@ -9,8 +9,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.LinkLabel;
 using System.CodeDom.Compiler;
 using System.Runtime.Intrinsics.X86;
+using BookHub.Models;
 
-namespace BookHub.Models
+namespace BookHub.Repository
 {
     internal class LivroRepository
     {

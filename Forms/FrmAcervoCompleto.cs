@@ -23,19 +23,18 @@ namespace BookHub.Forms
 
         }
 
-        //eventos
+        #region ..:: EVENTOS ::..
 
         private void btnPaginaInicial_Click(object sender, EventArgs e)
         {
-            //criando uma instancia da tela Inicial
+            //instancia da tela Inicial
             FrmTelaInicial telaInicialForm = new FrmTelaInicial();
 
-            //exibindo a tela inicial e fechando o AcervoCompleto 
+            //exibi a tela inicial e fechando o AcervoCompleto 
             telaInicialForm.Show();
-            this.Close(); // Fecha o formulário atual
+            this.Close(); // Fecha o form atual
         }
 
-  
 
         //botao resumo acervo
         private void btnResumoAcervo_Click(object sender, EventArgs e)
@@ -56,9 +55,16 @@ namespace BookHub.Forms
 
             //exibindo o form CadastroDeLivros
             frmcadastroDeLivros.ShowDialog();
+
+            //recarrega a grid de livros
+            CarregarLivros();
         }
 
-        //metodos
+        #endregion ..:: 
+
+        #region ..:: METODOS ::..
+
+
         private void CarregarLivros()
         {
             LivroController livroController = new LivroController();
@@ -66,7 +72,7 @@ namespace BookHub.Forms
 
             dgvTodosLivros.Rows.Clear(); // Limpa o DataGridView antes de popular
 
-            foreach(var livro in livros)
+            foreach (var livro in livros)
             {
                 dgvTodosLivros.Rows.Add(
                     livro.Id,
@@ -113,5 +119,9 @@ namespace BookHub.Forms
             dgvTodosLivros.Columns["Data_de_Registro"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }
+
+        #endregion ..:: 
+
+
     }
 }

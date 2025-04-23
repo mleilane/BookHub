@@ -1,4 +1,5 @@
 ﻿using BookHub.Models;
+using BookHub.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,14 @@ using System.Threading.Tasks;
 
 namespace BookHub.Service
 {
+    #region ..:: ENUM ::..
+    public enum ResultadoCadastro
+    {
+        NovoCadastro,
+        AtualizacaoQuantidade,
+        Erro
+    }
+    #endregion ..:: 
 
     internal class LivroService
     {
@@ -20,7 +29,8 @@ namespace BookHub.Service
 
         #region ..:: C (CREATE) - CRIAR ::..
 
-        public bool CadastrarLivro(Livro livro)
+        //cadastrar novo livro ou atualizar a quantidade (caso ja exista) 
+        public ResultadoCadastro CadastrarLivro(Livro livro)
         {
 
             //verifica se já existe no bd
@@ -30,12 +40,33 @@ namespace BookHub.Service
             {
                 //  atualiza a quantidade de livros
                 livroExistente.Quantidade += livro.Quantidade;
-                return _livroRepository.AtualizarLivro(livroExistente);
+                bool atualizado = _livroRepository.AtualizarLivro(livroExistente);
+
+                if (atualizado)
+                {
+                    return ResultadoCadastro.AtualizacaoQuantidade;
+                }
+                else
+                {
+                    return ResultadoCadastro.Erro;
+                }
 
             }
 
-            // Se não existir, cadastra o novo livro
-            return _livroRepository.CadastrarLivro(livro);
+            //se ainda não existe, faz o cadastro 
+            bool cadastrado = _livroRepository.CadastrarLivro(livro);
+
+            if (cadastrado)
+            {
+                return ResultadoCadastro.NovoCadastro;
+            }
+            else
+            {
+                return ResultadoCadastro.Erro;
+            }
+
+
+
         }
 
 
@@ -86,6 +117,7 @@ namespace BookHub.Service
             return _livroRepository.ExcluirLivro(id);
         }
 
-        #endregion ..:: D (DELETE) - EXCLUIR ::..
+        #endregion 
+
     }
 }

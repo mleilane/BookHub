@@ -132,6 +132,8 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Logar no Sistema";
+            Load += FrmLogin_Load;
+            Shown += FrmLogin_Shown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

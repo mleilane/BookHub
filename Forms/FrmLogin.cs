@@ -1,5 +1,6 @@
 ﻿using BookHub.Controller;
 using BookHub.Models;
+using BookHub.Service;
 using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
@@ -40,9 +41,30 @@ namespace BookHub.Forms
 
         }
 
-        #endregion ..:: Construtor ::..
+        #endregion
 
         #region ..:: Eventos ::..
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            var usuarioController = new UsuarioController();
+
+            int? idUsuario = usuarioController.VerificarLoginAutomatico();
+            if (!idUsuario.HasValue)
+                return;
+
+            var usuarioLembrado = usuarioController.BuscarUsuarioLembrado(idUsuario.Value);
+
+            if (usuarioLembrado != null)
+            {
+                txtLogin.Text = usuarioLembrado.Login;
+                // txtSenha.Text = usuarioLembrado.Senha;
+                chkLembrarMe.Checked = true;
+
+                
+            }
+        }
+
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             try
@@ -51,6 +73,8 @@ namespace BookHub.Forms
                 string loginUsuario = txtLogin.Text;
                 string senhaUsuario = txtSenha.Text;
                 bool lembrarLogin = chkLembrarMe.Checked;
+
+               
 
                 // Valida se os campos estão preenchidos
                 if (string.IsNullOrWhiteSpace(loginUsuario) || string.IsNullOrWhiteSpace(senhaUsuario))
@@ -87,11 +111,10 @@ namespace BookHub.Forms
                     {
                         int idUsuarioLogado = usuarioController.ObterIdUsuarioPorLogin(usuarioObj.Login);
 
-                        if(idUsuarioLogado != 0)
+                        if (idUsuarioLogado != 0)
                         {
                             usuarioController.SalvarLogin(idUsuarioLogado, true);
                         }
-                        //loginController.SalvarLogin(usuarioId.Value, lembrarLogin);
                     }
 
                     this.Hide();//esconde a tela inial apos login
@@ -121,8 +144,15 @@ namespace BookHub.Forms
             }
 
         }
-        #endregion ..:: Eventos ::..
+        private void FrmLogin_Shown(object sender, EventArgs e)
+        {
+
+            if (chkLembrarMe.Checked)
+            {
+                txtSenha.Focus();
+            }
+        }
+        #endregion
+
     }
-
-
 }
