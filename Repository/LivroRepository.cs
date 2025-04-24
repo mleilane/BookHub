@@ -235,6 +235,48 @@ namespace BookHub.Repository
             return null; // Retorna null caso o livro não seja encontrado
         }
 
+
+        public Livro BuscarLivroPorId(int id)
+        {
+            string query = @"SELECT 
+                                Id, 
+                                Titulo,
+                                Autor, 
+                                ISBN, 
+                                Quantidade, 
+                                Lido, 
+                                Data_De_Registro 
+                            FROM Livros 
+                            WHERE id = @Id";
+
+            // Cria um dicionário de parâmetros com o ator a ser buscado
+            var parameters = new Dictionary<string, object>
+            {
+                { "@Id", id }
+            };
+
+            // Executa a consulta e retorna um SqlDataReader para ler o resultado
+            using (var reader = DatabaseHelper.ExecuteReader(query, parameters))
+            {
+                if (reader.Read()) // Verifica se o livro foi encontrado
+                {
+                    // Cria e retorna o livro com os dados recuperados da consulta
+                    return new Livro
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Titulo = reader["Titulo"].ToString(),
+                        Autor = reader["Autor"].ToString(),
+                        ISBN = reader["ISBN"].ToString(),
+                        Quantidade = Convert.ToInt32(reader["Quantidade"]),
+                        Lido = Convert.ToBoolean(reader["Lido"]),
+                        DataDeRegistro = Convert.ToDateTime(reader["Data_De_Registro"])
+                    };
+                }
+            }
+
+            return null; // Retorna null caso o livro não seja encontrado
+        }
+
         #endregion ..:: R (READ) - LER ::..
 
 

@@ -15,6 +15,9 @@ namespace BookHub.Forms
 {
     public partial class FrmAcervoCompleto : Form
     {
+        LivroController controller = new LivroController();
+        private Livro livroSelecionado;
+
         public FrmAcervoCompleto()
         {
             InitializeComponent();
@@ -23,44 +26,6 @@ namespace BookHub.Forms
 
         }
 
-        #region ..:: EVENTOS ::..
-
-        private void btnPaginaInicial_Click(object sender, EventArgs e)
-        {
-            //instancia da tela Inicial
-            FrmTelaInicial telaInicialForm = new FrmTelaInicial();
-
-            //exibi a tela inicial e fechando o AcervoCompleto 
-            telaInicialForm.Show();
-            this.Close(); // Fecha o form atual
-        }
-
-
-        //botao resumo acervo
-        private void btnResumoAcervo_Click(object sender, EventArgs e)
-        {
-            //criando instancia 
-            FrmResumoAcervo resumoAcervoForm = new FrmResumoAcervo();
-
-            //exibindo o form ResumoAcervo
-            resumoAcervoForm.ShowDialog();
-        }
-
-
-        //botao adicionar livro 
-        private void btnAddLivro_Click(object sender, EventArgs e)
-        {
-            //criando instancia 
-            FrmCadastroDeLivros frmcadastroDeLivros = new FrmCadastroDeLivros();
-
-            //exibindo o form CadastroDeLivros
-            frmcadastroDeLivros.ShowDialog();
-
-            //recarrega a grid de livros
-            CarregarLivros();
-        }
-
-        #endregion ..:: 
 
         #region ..:: METODOS ::..
 
@@ -120,8 +85,140 @@ namespace BookHub.Forms
 
         }
 
+        private void LimparCamposBusca()
+        {
+            txtTituloLivro.Text = "";
+            txtAutor.Text = "";
+            txtIsbn.Text = "";
+        }
+
         #endregion ..:: 
 
+        #region ..:: EVENTOS ::..
 
+        private void btnPaginaInicial_Click(object sender, EventArgs e)
+        {
+            //instancia da tela Inicial
+            FrmTelaInicial telaInicialForm = new FrmTelaInicial();
+
+            //exibi a tela inicial e fechando o AcervoCompleto 
+            telaInicialForm.Show();
+            this.Close(); // Fecha o form atual
+        }
+
+        private void btnResumoAcervo_Click(object sender, EventArgs e)
+        {
+            //criando instancia 
+            FrmResumoAcervo resumoAcervoForm = new FrmResumoAcervo();
+
+            //exibindo o form ResumoAcervo
+            resumoAcervoForm.ShowDialog();
+        }
+
+        private void btnAddLivro_Click(object sender, EventArgs e)
+        {
+            //criando instancia 
+            FrmCadastroDeLivros frmcadastroDeLivros = new FrmCadastroDeLivros();
+
+            //exibindo o form CadastroDeLivros
+            frmcadastroDeLivros.ShowDialog();
+
+            //recarrega a grid de livros
+            CarregarLivros();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string titulo = txtTituloLivro.Text.Trim();
+            string autor = txtAutor.Text.Trim();
+            string isbn = txtIsbn.Text.Trim();
+
+
+            Livro livroEncontrato = null;
+
+            if (!string.IsNullOrEmpty(titulo))
+            {
+                livroEncontrato = controller.BuscarLivroPorTitulo(titulo);
+            }
+            else if (!string.IsNullOrEmpty(autor))
+            {
+                livroEncontrato = controller.BuscarLivroPorAutor(autor);
+            }
+            else if (!string.IsNullOrEmpty(isbn))
+            {
+                livroEncontrato = controller.BuscarLivroPorIsbn(isbn);
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Preencha ao menos um campo para buscar.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            if (livroEncontrato != null)
+            {
+                //preenche os campos 
+                txtTituloLivro.Text = livroEncontrato.Titulo;
+                txtAutor.Text = livroEncontrato.Autor;
+                txtIsbn.Text = livroEncontrato.ISBN;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Livro não encontrado.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                LimparCamposBusca();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCamposBusca();
+        }
+
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+            if (livroSelecionado == null)
+            {
+                MessageBox.Show(
+                    "Busque um livro antes de tentar excluir.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            // Chama o método da controller para excluir o livro
+            bool sucesso = controller.ExcluirLivro(livroSelecionado.Id);
+
+            if (sucesso)
+            {
+                livroSelecionado = null;
+                LimparCamposBusca();
+                CarregarLivros(); // Atualiza a grid
+            }
+
+        }
+        #endregion ..:: 
+
+        private void dgvTodosLivros_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dgvTodosLivros.SelectedRows.Count > 0)
+            {
+                int idLivroSelecionado = Convert.ToInt32(dgvTodosLivros.SelectedRows[0].Cells["Id"].Value);
+                livroSelecionado = controller.BuscarLivroPorId(idLivroSelecionado);
+            }
+        }
     }
 }

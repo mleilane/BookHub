@@ -80,6 +80,11 @@ namespace BookHub.Controller
             return _livroService.BuscarLivroPorAutor(autor);
         }
 
+        public Livro BuscarLivroPorId(int id)
+        {
+            return _livroService.BuscarLivroPorId(id);
+        }
+
 
         public bool ExcluirLivro(int id)
         {

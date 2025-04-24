@@ -95,6 +95,11 @@ namespace BookHub.Service
             return _livroRepository.BuscarLivroPorAutor(autor);
         }
 
+        public Livro BuscarLivroPorId(int id)
+        {
+            return _livroRepository.BuscarLivroPorId(id);
+        }
+
 
         #endregion ..:: R (READ) - LER ::..
 

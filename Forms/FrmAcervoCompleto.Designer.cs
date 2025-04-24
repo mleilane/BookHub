@@ -33,6 +33,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAcervoCompleto));
             label1 = new Label();
             dgvTodosLivros = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            Título = new DataGridViewTextBoxColumn();
+            Autor = new DataGridViewTextBoxColumn();
+            ISBN = new DataGridViewTextBoxColumn();
+            Quantidade = new DataGridViewTextBoxColumn();
+            Lido = new DataGridViewTextBoxColumn();
+            Data_de_Registro = new DataGridViewTextBoxColumn();
             btnAddLivro = new Button();
             btnResumoAcervo = new Button();
             btnPaginaInicial = new Button();
@@ -52,13 +59,6 @@
             txtAutor = new TextBox();
             grpMenuAcervoCompleto = new GroupBox();
             sqlCommand2 = new Microsoft.Data.SqlClient.SqlCommand();
-            Id = new DataGridViewTextBoxColumn();
-            Título = new DataGridViewTextBoxColumn();
-            Autor = new DataGridViewTextBoxColumn();
-            ISBN = new DataGridViewTextBoxColumn();
-            Quantidade = new DataGridViewTextBoxColumn();
-            Lido = new DataGridViewTextBoxColumn();
-            Data_de_Registro = new DataGridViewTextBoxColumn();
             btnEditarLivro = new Button();
             btnSalvar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTodosLivros).BeginInit();
@@ -126,6 +126,57 @@
             dgvTodosLivros.RowHeadersWidth = 51;
             dgvTodosLivros.Size = new Size(1168, 367);
             dgvTodosLivros.TabIndex = 28;
+            dgvTodosLivros.SelectionChanged += dgvTodosLivros_SelectionChanged;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // Título
+            // 
+            Título.HeaderText = "Título";
+            Título.MinimumWidth = 6;
+            Título.Name = "Título";
+            Título.ReadOnly = true;
+            // 
+            // Autor
+            // 
+            Autor.HeaderText = "Autor";
+            Autor.MinimumWidth = 6;
+            Autor.Name = "Autor";
+            Autor.ReadOnly = true;
+            // 
+            // ISBN
+            // 
+            ISBN.HeaderText = "ISBN";
+            ISBN.MinimumWidth = 6;
+            ISBN.Name = "ISBN";
+            ISBN.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            Quantidade.HeaderText = "Quantidade";
+            Quantidade.MinimumWidth = 6;
+            Quantidade.Name = "Quantidade";
+            Quantidade.ReadOnly = true;
+            // 
+            // Lido
+            // 
+            Lido.HeaderText = "Lido";
+            Lido.MinimumWidth = 6;
+            Lido.Name = "Lido";
+            Lido.ReadOnly = true;
+            // 
+            // Data_de_Registro
+            // 
+            Data_de_Registro.HeaderText = "Data de Registro";
+            Data_de_Registro.MinimumWidth = 6;
+            Data_de_Registro.Name = "Data_de_Registro";
+            Data_de_Registro.ReadOnly = true;
             // 
             // btnAddLivro
             // 
@@ -240,6 +291,7 @@
             btnExcluir.TabIndex = 42;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = false;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnPesquisar
             // 
@@ -255,6 +307,7 @@
             btnPesquisar.TabIndex = 40;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = false;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // sqlCommand1
             // 
@@ -322,6 +375,7 @@
             btnCancelar.TabIndex = 46;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtIsbn
             // 
@@ -357,56 +411,6 @@
             // 
             sqlCommand2.CommandTimeout = 30;
             sqlCommand2.EnableOptimizedParameterBinding = false;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 6;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            // 
-            // Título
-            // 
-            Título.HeaderText = "Título";
-            Título.MinimumWidth = 6;
-            Título.Name = "Título";
-            Título.ReadOnly = true;
-            // 
-            // Autor
-            // 
-            Autor.HeaderText = "Autor";
-            Autor.MinimumWidth = 6;
-            Autor.Name = "Autor";
-            Autor.ReadOnly = true;
-            // 
-            // ISBN
-            // 
-            ISBN.HeaderText = "ISBN";
-            ISBN.MinimumWidth = 6;
-            ISBN.Name = "ISBN";
-            ISBN.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            Quantidade.HeaderText = "Quantidade";
-            Quantidade.MinimumWidth = 6;
-            Quantidade.Name = "Quantidade";
-            Quantidade.ReadOnly = true;
-            // 
-            // Lido
-            // 
-            Lido.HeaderText = "Lido";
-            Lido.MinimumWidth = 6;
-            Lido.Name = "Lido";
-            Lido.ReadOnly = true;
-            // 
-            // Data_de_Registro
-            // 
-            Data_de_Registro.HeaderText = "Data de Registro";
-            Data_de_Registro.MinimumWidth = 6;
-            Data_de_Registro.Name = "Data_de_Registro";
-            Data_de_Registro.ReadOnly = true;
             // 
             // FrmAcervoCompleto
             // 
