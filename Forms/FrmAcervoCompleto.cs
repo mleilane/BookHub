@@ -134,19 +134,19 @@ namespace BookHub.Forms
             string isbn = txtIsbn.Text.Trim();
 
 
-            Livro livroEncontrato = null;
+            Livro livroEncontrado = null;
 
             if (!string.IsNullOrEmpty(titulo))
             {
-                livroEncontrato = controller.BuscarLivroPorTitulo(titulo);
+                livroEncontrado = controller.BuscarLivroPorTitulo(titulo);
             }
             else if (!string.IsNullOrEmpty(autor))
             {
-                livroEncontrato = controller.BuscarLivroPorAutor(autor);
+                livroEncontrado = controller.BuscarLivroPorAutor(autor);
             }
             else if (!string.IsNullOrEmpty(isbn))
             {
-                livroEncontrato = controller.BuscarLivroPorIsbn(isbn);
+                livroEncontrado = controller.BuscarLivroPorIsbn(isbn);
             }
             else
             {
@@ -159,12 +159,32 @@ namespace BookHub.Forms
                 return;
             }
 
-            if (livroEncontrato != null)
+            if (livroEncontrado != null)
             {
+                //atualiza a gride com o livro pesquisado
+                dgvTodosLivros.Rows.Clear();
+                dgvTodosLivros.Rows.Add(
+                    livroEncontrado.Id,
+                    livroEncontrado.Titulo,
+                    livroEncontrado.Autor,
+                    livroEncontrado.ISBN,
+                    livroEncontrado.Quantidade,
+                    livroEncontrado.Quantidade,
+                    livroEncontrado.Lido ? "Sim" : "Não",
+                    livroEncontrado.DataDeRegistro.ToString("dd/MM/yyyy")
+                );
+
+                // Seleciona a linha automaticamente
+                dgvTodosLivros.ClearSelection();
+                if (dgvTodosLivros.Rows.Count > 0)
+                {
+                    dgvTodosLivros.Rows[0].Selected = true;
+                }
+
                 //preenche os campos 
-                txtTituloLivro.Text = livroEncontrato.Titulo;
-                txtAutor.Text = livroEncontrato.Autor;
-                txtIsbn.Text = livroEncontrato.ISBN;
+                txtTituloLivro.Text = livroEncontrado.Titulo;
+                txtAutor.Text = livroEncontrado.Autor;
+                txtIsbn.Text = livroEncontrado.ISBN;
             }
             else
             {
@@ -181,7 +201,10 @@ namespace BookHub.Forms
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            LimparCamposBusca();
+            LimparCamposBusca(); //limpa campos de pesquisa
+            CarregarLivros(); //recarrega a  gride
+            dgvTodosLivros.ClearSelection();  // Limpa qualquer seleção que sobrou
+            livroSelecionado = null; // Remove referência ao livro que estava selecionado
         }
 
 
@@ -214,7 +237,7 @@ namespace BookHub.Forms
 
         private void dgvTodosLivros_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvTodosLivros.SelectedRows.Count > 0)
+            if (dgvTodosLivros.SelectedRows.Count > 0)
             {
                 int idLivroSelecionado = Convert.ToInt32(dgvTodosLivros.SelectedRows[0].Cells["Id"].Value);
                 livroSelecionado = controller.BuscarLivroPorId(idLivroSelecionado);
