@@ -289,8 +289,8 @@ namespace BookHub.Repository
                                 Autor = @Autor,
                                 ISBN = @ISBN,
                                 Quantidade = @Quantidade,
-                                Lido = @Lido,
-                                Data_De_Registro = @DataDeRegistro
+                                Lido = @Lido
+                                --Data_De_Registro = @DataDeRegistro
                             WHERE Id = @Id";
 
             var parameters = new Dictionary<string, object>
@@ -301,7 +301,7 @@ namespace BookHub.Repository
                 { "@ISBN", livro.ISBN },
                 { "@Quantidade", livro.Quantidade },
                 { "@Lido", livro.Lido },
-                { "@DataDeRegistro", livro.DataDeRegistro }
+                //{ "@DataDeRegistro", livro.DataDeRegistro }
             };
 
             int rows = DatabaseHelper.ExecuteNonQuery(query, parameters);

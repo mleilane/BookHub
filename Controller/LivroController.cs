@@ -85,6 +85,87 @@ namespace BookHub.Controller
             return _livroService.BuscarLivroPorId(id);
         }
 
+        public bool AtualizaLivro(Livro livroAtualizado)
+        {
+            //busca o livro original no banco 
+            Livro livroOriginal = _livroService.BuscarLivroPorId(livroAtualizado.Id);
+
+            if(livroOriginal == null) 
+            {
+                // Livro não encontrado
+                MessageBox.Show(
+                    "Livro não encontrado para atualização.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return false;
+
+            }
+
+            //verifica se houve alguma alteração 
+            bool alterado = false;
+
+            if(livroAtualizado.Titulo != livroOriginal.Titulo)
+            {
+                alterado = true;
+            }
+            if(livroAtualizado.Autor != livroOriginal.Autor)
+            {
+                alterado = true;
+            }
+            if(livroAtualizado.ISBN != livroOriginal.ISBN)
+            {
+                alterado = true;
+            }
+            if (livroAtualizado.Quantidade != livroOriginal.Quantidade)
+            {
+                alterado = true;
+            }
+            if (livroAtualizado.Lido != livroOriginal.Lido)
+            {
+                alterado = true;
+            }
+
+            if (!alterado)
+            {
+                // Nenhuma alteração detectada
+                MessageBox.Show(
+                    "Nenhuma alteração detectada. O livro não foi modificado.",
+                    "Sem Alterações",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                return false;
+            }
+            
+
+            // Se teve alteração, atualizar
+            bool sucesso = _livroService.AtualizaLivro(livroAtualizado);
+
+            if (sucesso)
+            {
+                MessageBox.Show(
+                    "Livro atualizado com sucesso!",
+                    "Atualização Realizada",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Ocorreu um erro ao tentar atualizar o livro.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+
+            return sucesso;
+
+        }
+
 
         public bool ExcluirLivro(int id)
         {

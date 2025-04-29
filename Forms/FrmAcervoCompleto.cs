@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace BookHub.Forms
 {
@@ -90,6 +91,9 @@ namespace BookHub.Forms
             txtTituloLivro.Text = "";
             txtAutor.Text = "";
             txtIsbn.Text = "";
+            txtQtd.Text = "";
+            rbtnSim.Checked = false;
+            rbtnNao.Checked = false;
         }
 
         #endregion ..:: 
@@ -169,7 +173,6 @@ namespace BookHub.Forms
                     livroEncontrado.Autor,
                     livroEncontrado.ISBN,
                     livroEncontrado.Quantidade,
-                    livroEncontrado.Quantidade,
                     livroEncontrado.Lido ? "Sim" : "Não",
                     livroEncontrado.DataDeRegistro.ToString("dd/MM/yyyy")
                 );
@@ -185,6 +188,18 @@ namespace BookHub.Forms
                 txtTituloLivro.Text = livroEncontrado.Titulo;
                 txtAutor.Text = livroEncontrado.Autor;
                 txtIsbn.Text = livroEncontrado.ISBN;
+                txtQtd.Text = livroEncontrado.Quantidade.ToString();
+
+
+                if (livroEncontrado.Lido)
+                {
+                    rbtnSim.Checked = true;
+                }
+                else
+                {
+                    rbtnNao.Checked = true;
+                }
+
             }
             else
             {
@@ -233,7 +248,6 @@ namespace BookHub.Forms
             }
 
         }
-        #endregion ..:: 
 
         private void dgvTodosLivros_SelectionChanged(object sender, EventArgs e)
         {
@@ -243,5 +257,59 @@ namespace BookHub.Forms
                 livroSelecionado = controller.BuscarLivroPorId(idLivroSelecionado);
             }
         }
+
+
+        private void btnSalvar_Click_1(object sender, EventArgs e)
+        {
+            //pegando os dados da tela 
+            var livroAtualizado = new Livro
+            {
+                Id = livroSelecionado.Id,
+                Titulo = txtTituloLivro.Text.Trim(),
+                Autor = txtAutor.Text.Trim(),
+                ISBN = txtIsbn.Text.Trim(),
+                Quantidade = livroSelecionado.Quantidade,
+                Lido = livroSelecionado.Lido
+
+            };
+
+            bool sucesso = controller.AtualizaLivro(livroAtualizado);
+
+            // Recarrega a lista de livros na grid
+            CarregarLivros();
+
+            // Limpa os campos de pesquisa
+            LimparCamposBusca();
+
+            // Limpa a seleção do DataGridView
+            dgvTodosLivros.ClearSelection();
+        }
+
+
+
+        private void dgvTodosLivros_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvTodosLivros.Rows[e.RowIndex]; //a variavel row pega a linha clicada
+                txtTituloLivro.Text = row.Cells["Título"].Value?.ToString();
+                txtAutor.Text = row.Cells["Autor"].Value?.ToString();
+                txtIsbn.Text = row.Cells["ISBN"].Value?.ToString();
+                txtQtd.Text = row.Cells["Quantidade"].Value?.ToString();
+
+                // Verifica o estado do campo "Lido"
+                string lido = row.Cells["Lido"].Value?.ToString();
+                if (lido == "Sim")
+                {
+                    rbtnSim.Checked = true;
+                }
+                else
+                {
+                    rbtnNao.Checked = true;
+                }
+            }
+        }
+
+        #endregion ..:: 
     }
 }

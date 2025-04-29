@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Button btnEditarLivro;
             Button btnSalvar;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAcervoCompleto));
             label1 = new Label();
@@ -54,12 +53,16 @@
             panel2 = new Panel();
             groupBox3 = new GroupBox();
             grpBuscarLivros = new GroupBox();
-            btnCancelar = new Button();
+            rbtnNao = new RadioButton();
+            rbtnSim = new RadioButton();
+            lbllido = new Label();
             txtIsbn = new TextBox();
+            label5 = new Label();
+            btnCancelar = new Button();
+            txtQtd = new TextBox();
             txtAutor = new TextBox();
             grpMenuAcervoCompleto = new GroupBox();
             sqlCommand2 = new Microsoft.Data.SqlClient.SqlCommand();
-            btnEditarLivro = new Button();
             btnSalvar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTodosLivros).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -69,21 +72,6 @@
             grpMenuAcervoCompleto.SuspendLayout();
             SuspendLayout();
             // 
-            // btnEditarLivro
-            // 
-            btnEditarLivro.BackColor = Color.DarkSlateGray;
-            btnEditarLivro.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
-            btnEditarLivro.ForeColor = SystemColors.Control;
-            btnEditarLivro.Image = Properties.Resources.editar;
-            btnEditarLivro.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditarLivro.Location = new Point(27, 227);
-            btnEditarLivro.Name = "btnEditarLivro";
-            btnEditarLivro.Padding = new Padding(9, 0, 0, 0);
-            btnEditarLivro.Size = new Size(219, 45);
-            btnEditarLivro.TabIndex = 41;
-            btnEditarLivro.Text = "Editar";
-            btnEditarLivro.UseVisualStyleBackColor = false;
-            // 
             // btnSalvar
             // 
             btnSalvar.BackColor = Color.DarkSlateGray;
@@ -91,13 +79,14 @@
             btnSalvar.ForeColor = SystemColors.Control;
             btnSalvar.Image = Properties.Resources.salvar2;
             btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalvar.Location = new Point(283, 227);
+            btnSalvar.Location = new Point(28, 228);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Padding = new Padding(9, 0, 0, 0);
-            btnSalvar.Size = new Size(219, 45);
+            btnSalvar.Size = new Size(177, 45);
             btnSalvar.TabIndex = 45;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = false;
+            btnSalvar.Click += btnSalvar_Click_1;
             // 
             // label1
             // 
@@ -126,6 +115,7 @@
             dgvTodosLivros.RowHeadersWidth = 51;
             dgvTodosLivros.Size = new Size(1168, 367);
             dgvTodosLivros.TabIndex = 28;
+            dgvTodosLivros.CellClick += dgvTodosLivros_CellClick_1;
             dgvTodosLivros.SelectionChanged += dgvTodosLivros_SelectionChanged;
             // 
             // Id
@@ -241,7 +231,7 @@
             txtTituloLivro.Location = new Point(27, 55);
             txtTituloLivro.Multiline = true;
             txtTituloLivro.Name = "txtTituloLivro";
-            txtTituloLivro.Size = new Size(1132, 45);
+            txtTituloLivro.Size = new Size(551, 45);
             txtTituloLivro.TabIndex = 33;
             // 
             // label2
@@ -260,7 +250,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label3.ForeColor = Color.DarkSlateGray;
-            label3.Location = new Point(23, 120);
+            label3.Location = new Point(608, 34);
             label3.Name = "label3";
             label3.Size = new Size(48, 18);
             label3.TabIndex = 36;
@@ -271,7 +261,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label4.ForeColor = Color.DarkSlateGray;
-            label4.Location = new Point(671, 120);
+            label4.Location = new Point(28, 120);
             label4.Name = "label4";
             label4.Size = new Size(46, 18);
             label4.TabIndex = 38;
@@ -284,10 +274,10 @@
             btnExcluir.ForeColor = SystemColors.Control;
             btnExcluir.Image = Properties.Resources.excluir_cancelar;
             btnExcluir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExcluir.Location = new Point(939, 227);
+            btnExcluir.Location = new Point(400, 228);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Padding = new Padding(9, 0, 0, 0);
-            btnExcluir.Size = new Size(219, 45);
+            btnExcluir.Size = new Size(177, 45);
             btnExcluir.TabIndex = 42;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = false;
@@ -300,10 +290,10 @@
             btnPesquisar.ForeColor = SystemColors.Control;
             btnPesquisar.Image = Properties.Resources.pesquisar;
             btnPesquisar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPesquisar.Location = new Point(1003, 140);
+            btnPesquisar.Location = new Point(962, 141);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Padding = new Padding(9, 0, 0, 0);
-            btnPesquisar.Size = new Size(155, 45);
+            btnPesquisar.Size = new Size(201, 45);
             btnPesquisar.TabIndex = 40;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = false;
@@ -341,13 +331,17 @@
             // 
             // grpBuscarLivros
             // 
+            grpBuscarLivros.Controls.Add(rbtnNao);
+            grpBuscarLivros.Controls.Add(rbtnSim);
+            grpBuscarLivros.Controls.Add(lbllido);
+            grpBuscarLivros.Controls.Add(txtIsbn);
+            grpBuscarLivros.Controls.Add(label5);
             grpBuscarLivros.Controls.Add(btnCancelar);
             grpBuscarLivros.Controls.Add(btnSalvar);
-            grpBuscarLivros.Controls.Add(txtIsbn);
+            grpBuscarLivros.Controls.Add(txtQtd);
             grpBuscarLivros.Controls.Add(txtAutor);
             grpBuscarLivros.Controls.Add(btnExcluir);
             grpBuscarLivros.Controls.Add(label2);
-            grpBuscarLivros.Controls.Add(btnEditarLivro);
             grpBuscarLivros.Controls.Add(txtTituloLivro);
             grpBuscarLivros.Controls.Add(btnPesquisar);
             grpBuscarLivros.Controls.Add(label3);
@@ -359,7 +353,63 @@
             grpBuscarLivros.Size = new Size(1181, 300);
             grpBuscarLivros.TabIndex = 43;
             grpBuscarLivros.TabStop = false;
-            grpBuscarLivros.Text = "Buscar Livros no Acervo";
+            grpBuscarLivros.Text = "Editar livros do acervo";
+            // 
+            // rbtnNao
+            // 
+            rbtnNao.AutoSize = true;
+            rbtnNao.Font = new Font("Microsoft Sans Serif", 9F);
+            rbtnNao.ForeColor = Color.DarkSlateGray;
+            rbtnNao.Location = new Point(856, 159);
+            rbtnNao.Name = "rbtnNao";
+            rbtnNao.Size = new Size(57, 22);
+            rbtnNao.TabIndex = 52;
+            rbtnNao.TabStop = true;
+            rbtnNao.Text = "Não";
+            rbtnNao.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSim
+            // 
+            rbtnSim.AutoSize = true;
+            rbtnSim.Font = new Font("Microsoft Sans Serif", 9F);
+            rbtnSim.ForeColor = Color.DarkSlateGray;
+            rbtnSim.Location = new Point(793, 159);
+            rbtnSim.Name = "rbtnSim";
+            rbtnSim.Size = new Size(55, 22);
+            rbtnSim.TabIndex = 51;
+            rbtnSim.TabStop = true;
+            rbtnSim.Text = "Sim";
+            rbtnSim.UseVisualStyleBackColor = true;
+            // 
+            // lbllido
+            // 
+            lbllido.AutoSize = true;
+            lbllido.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            lbllido.ForeColor = Color.DarkSlateGray;
+            lbllido.Location = new Point(793, 120);
+            lbllido.Name = "lbllido";
+            lbllido.Size = new Size(49, 18);
+            lbllido.TabIndex = 50;
+            lbllido.Text = "Lido?";
+            // 
+            // txtIsbn
+            // 
+            txtIsbn.Location = new Point(28, 141);
+            txtIsbn.Multiline = true;
+            txtIsbn.Name = "txtIsbn";
+            txtIsbn.Size = new Size(549, 45);
+            txtIsbn.TabIndex = 48;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label5.ForeColor = Color.DarkSlateGray;
+            label5.Location = new Point(610, 120);
+            label5.Name = "label5";
+            label5.Size = new Size(40, 18);
+            label5.TabIndex = 47;
+            label5.Text = "Qtd.";
             // 
             // btnCancelar
             // 
@@ -368,29 +418,29 @@
             btnCancelar.ForeColor = SystemColors.Control;
             btnCancelar.Image = Properties.Resources.excluir_cancelar;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(538, 227);
+            btnCancelar.Location = new Point(214, 228);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Padding = new Padding(9, 0, 0, 0);
-            btnCancelar.Size = new Size(219, 45);
+            btnCancelar.Size = new Size(177, 45);
             btnCancelar.TabIndex = 46;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // txtIsbn
+            // txtQtd
             // 
-            txtIsbn.Location = new Point(671, 141);
-            txtIsbn.Multiline = true;
-            txtIsbn.Name = "txtIsbn";
-            txtIsbn.Size = new Size(311, 45);
-            txtIsbn.TabIndex = 44;
+            txtQtd.Location = new Point(613, 140);
+            txtQtd.Multiline = true;
+            txtQtd.Name = "txtQtd";
+            txtQtd.Size = new Size(128, 45);
+            txtQtd.TabIndex = 44;
             // 
             // txtAutor
             // 
-            txtAutor.Location = new Point(27, 141);
+            txtAutor.Location = new Point(612, 55);
             txtAutor.Multiline = true;
             txtAutor.Name = "txtAutor";
-            txtAutor.Size = new Size(622, 45);
+            txtAutor.Size = new Size(551, 45);
             txtAutor.TabIndex = 43;
             // 
             // grpMenuAcervoCompleto
@@ -445,14 +495,13 @@
         private Label label3;
         private Label label4;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
-        private Button btnEditarLivro;
         private Button btnPesquisar;
         private Button btnExcluir;
         private Panel panel2;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand2;
         private GroupBox grpMenuAcervoCompleto;
         private GroupBox grpBuscarLivros;
-        private TextBox txtIsbn;
+        private TextBox txtQtd;
         private TextBox txtAutor;
         private Button btnCancelar;
         private GroupBox groupBox3;
@@ -463,5 +512,10 @@
         private DataGridViewTextBoxColumn Quantidade;
         private DataGridViewTextBoxColumn Lido;
         private DataGridViewTextBoxColumn Data_de_Registro;
+        private TextBox txtIsbn;
+        private Label label5;
+        private RadioButton rbtnNao;
+        private RadioButton rbtnSim;
+        private Label lbllido;
     }
 }
