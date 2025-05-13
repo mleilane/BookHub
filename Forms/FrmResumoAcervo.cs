@@ -7,16 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookHub.Controller;
 
 namespace BookHub.Forms
 {
     public partial class FrmResumoAcervo : Form
     {
+        private readonly LivroController _livroController = new LivroController();
+
         public FrmResumoAcervo()
         {
             InitializeComponent();
         }
 
+
+
+
+        //eventos 
         private void btnPaginaInicial_Click(object sender, EventArgs e)
         {
             //verifica se já existe uma instancia da TelaInicial aberta 
@@ -68,6 +75,18 @@ namespace BookHub.Forms
 
             //exibindo o form CadastroDeLivros
             cadastroDeLivros.ShowDialog();
+        }
+
+        private void FrmResumoAcervo_Load(object sender, EventArgs e)
+        {
+            var resumo = _livroController.ObterResumoAcervo();
+
+            lblTotal.Text = resumo.total.ToString();
+            lblQtdLidos.Text = resumo.lidos.ToString();
+            lblPercLidos.Text = $"{resumo.percLidos:F0}%";
+
+            lblQtdNaoLidos.Text = resumo.naoLidos.ToString();
+            lblPercNaoLidos.Text = $"{resumo.percNaoLidos:F0}%";
         }
     }
 }

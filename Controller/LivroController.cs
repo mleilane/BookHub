@@ -1,4 +1,5 @@
-﻿using BookHub.Models;
+﻿using BookHub.Forms;
+using BookHub.Models;
 using BookHub.Service;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,12 @@ namespace BookHub.Controller
         {
             return _livroService.ObterTodosLivros();
         }
+
+        public (int total, int lidos, int naoLidos, double percLidos, double percNaoLidos) ObterResumoAcervo()
+        {
+            return _livroService.ObterResumoAcervo();
+        }
+
 
         public bool CadastrarLivro(Livro livro)
         {
@@ -84,6 +91,7 @@ namespace BookHub.Controller
         {
             return _livroService.BuscarLivroPorId(id);
         }
+
 
         public bool AtualizaLivro(Livro livroAtualizado)
         {

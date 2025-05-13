@@ -100,6 +100,38 @@ namespace BookHub.Service
             return _livroRepository.BuscarLivroPorId(id);
         }
 
+        //retorna uma tupla com 5 valores
+        public (int total, int lidos, int naoLidos, double percLidos, double percNaoLidos) ObterResumoAcervo()
+        {
+            var livros = _livroRepository.ObterTodosLivros();
+            int total = livros.Count;
+
+            int lidos = 0;
+
+            //percorre a lista de livros e soma os marcados como lidos
+            foreach (var livro in livros)
+            {
+                if (livro.Lido)
+                {
+                    lidos++;
+                }
+            }
+
+
+            int naoLidos = total - lidos;
+
+            double percLidos = 0;
+            double percNaoLidos = 0;
+
+            if(total > 0)
+            {
+                percLidos = (lidos * 100.0) / total;
+                percNaoLidos = (naoLidos * 100.0) / total;
+            }
+
+            return (total, lidos, naoLidos, percLidos, percNaoLidos);
+        }
+
 
         #endregion ..:: R (READ) - LER ::..
 

@@ -83,7 +83,7 @@
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Padding = new Padding(9, 0, 0, 0);
             btnSalvar.Size = new Size(177, 45);
-            btnSalvar.TabIndex = 45;
+            btnSalvar.TabIndex = 8;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = false;
             btnSalvar.Click += btnSalvar_Click_1;
@@ -179,7 +179,7 @@
             btnAddLivro.Name = "btnAddLivro";
             btnAddLivro.Padding = new Padding(8, 0, 0, 0);
             btnAddLivro.Size = new Size(194, 45);
-            btnAddLivro.TabIndex = 32;
+            btnAddLivro.TabIndex = 12;
             btnAddLivro.Text = "Adicionar Livro";
             btnAddLivro.UseVisualStyleBackColor = false;
             btnAddLivro.Click += btnAddLivro_Click;
@@ -195,7 +195,7 @@
             btnResumoAcervo.Name = "btnResumoAcervo";
             btnResumoAcervo.Padding = new Padding(8, 0, 0, 0);
             btnResumoAcervo.Size = new Size(194, 45);
-            btnResumoAcervo.TabIndex = 31;
+            btnResumoAcervo.TabIndex = 13;
             btnResumoAcervo.Text = "Resumo Acervo";
             btnResumoAcervo.UseVisualStyleBackColor = false;
             btnResumoAcervo.Click += btnResumoAcervo_Click;
@@ -211,7 +211,7 @@
             btnPaginaInicial.Name = "btnPaginaInicial";
             btnPaginaInicial.Padding = new Padding(8, 0, 0, 0);
             btnPaginaInicial.Size = new Size(194, 45);
-            btnPaginaInicial.TabIndex = 30;
+            btnPaginaInicial.TabIndex = 11;
             btnPaginaInicial.Text = "Página Inicial";
             btnPaginaInicial.UseVisualStyleBackColor = false;
             btnPaginaInicial.Click += btnPaginaInicial_Click;
@@ -232,7 +232,7 @@
             txtTituloLivro.Multiline = true;
             txtTituloLivro.Name = "txtTituloLivro";
             txtTituloLivro.Size = new Size(551, 45);
-            txtTituloLivro.TabIndex = 33;
+            txtTituloLivro.TabIndex = 1;
             // 
             // label2
             // 
@@ -278,7 +278,7 @@
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Padding = new Padding(9, 0, 0, 0);
             btnExcluir.Size = new Size(177, 45);
-            btnExcluir.TabIndex = 42;
+            btnExcluir.TabIndex = 10;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = false;
             btnExcluir.Click += btnExcluir_Click;
@@ -294,7 +294,7 @@
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Padding = new Padding(9, 0, 0, 0);
             btnPesquisar.Size = new Size(201, 45);
-            btnPesquisar.TabIndex = 40;
+            btnPesquisar.TabIndex = 7;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = false;
             btnPesquisar.Click += btnPesquisar_Click;
@@ -363,7 +363,7 @@
             rbtnNao.Location = new Point(856, 159);
             rbtnNao.Name = "rbtnNao";
             rbtnNao.Size = new Size(57, 22);
-            rbtnNao.TabIndex = 52;
+            rbtnNao.TabIndex = 6;
             rbtnNao.TabStop = true;
             rbtnNao.Text = "Não";
             rbtnNao.UseVisualStyleBackColor = true;
@@ -376,7 +376,7 @@
             rbtnSim.Location = new Point(793, 159);
             rbtnSim.Name = "rbtnSim";
             rbtnSim.Size = new Size(55, 22);
-            rbtnSim.TabIndex = 51;
+            rbtnSim.TabIndex = 5;
             rbtnSim.TabStop = true;
             rbtnSim.Text = "Sim";
             rbtnSim.UseVisualStyleBackColor = true;
@@ -398,7 +398,7 @@
             txtIsbn.Multiline = true;
             txtIsbn.Name = "txtIsbn";
             txtIsbn.Size = new Size(549, 45);
-            txtIsbn.TabIndex = 48;
+            txtIsbn.TabIndex = 3;
             // 
             // label5
             // 
@@ -422,7 +422,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Padding = new Padding(9, 0, 0, 0);
             btnCancelar.Size = new Size(177, 45);
-            btnCancelar.TabIndex = 46;
+            btnCancelar.TabIndex = 9;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
@@ -433,7 +433,7 @@
             txtQtd.Multiline = true;
             txtQtd.Name = "txtQtd";
             txtQtd.Size = new Size(128, 45);
-            txtQtd.TabIndex = 44;
+            txtQtd.TabIndex = 4;
             // 
             // txtAutor
             // 
@@ -441,7 +441,7 @@
             txtAutor.Multiline = true;
             txtAutor.Name = "txtAutor";
             txtAutor.Size = new Size(551, 45);
-            txtAutor.TabIndex = 43;
+            txtAutor.TabIndex = 2;
             // 
             // grpMenuAcervoCompleto
             // 
