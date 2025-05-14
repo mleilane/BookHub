@@ -34,7 +34,6 @@ namespace BookHub.Forms
             foreach (var livro in livros)
             {
                 dgvUltimosAdicionados.Rows.Add(
-                    livro.Id,
                     livro.Titulo,
                     livro.Autor,
                     livro.ISBN,

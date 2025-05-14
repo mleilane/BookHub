@@ -206,7 +206,6 @@
             // 
             dgvUltimosAdicionados.AllowUserToAddRows = false;
             dgvUltimosAdicionados.AllowUserToDeleteRows = false;
-            dgvUltimosAdicionados.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 192);
             dgvUltimosAdicionados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvUltimosAdicionados.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
