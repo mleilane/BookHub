@@ -112,6 +112,48 @@ namespace BookHub.Repository
             return livros;
         }
 
+        public List<Livro> ObterUltimosAdicionados()
+        {
+            var livros = new List<Livro>(); // Lista para armazenar os livros recuperados
+
+            string query = @"SELECT TOP 7
+                              Id,
+                              Titulo,
+                              Autor, 
+                              ISBN, 
+                              Quantidade, 
+                              Lido,
+                              Data_De_Registro 
+                          FROM Livros
+                          ORDER BY DATA_DE_REGISTRO DESC";
+
+            // Executa a consulta e retorna um SqlDataReader para ler os resultados
+            using (var reader = DatabaseHelper.ExecuteReader(query))
+            {
+                // Lê cada linha de resultado da consulta
+                while (reader.Read())
+                {
+                    // Cria um novo objeto Livro e preenche com os dados da linha lida
+                    Livro livro = new Livro
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Titulo = reader["Titulo"].ToString(),
+                        Autor = reader["Autor"].ToString(),
+                        ISBN = reader["ISBN"].ToString(),
+                        Quantidade = Convert.ToInt32(reader["Quantidade"]),
+                        Lido = Convert.ToBoolean(reader["Lido"]),
+                        DataDeRegistro = Convert.ToDateTime(reader["Data_De_Registro"])
+                    };
+
+                    //Adiciona o livro a lista
+                    livros.Add(livro);
+                }
+            }
+
+            return livros;
+        }
+
+
         public Livro BuscarLivroPorTitulo(string titulo)
         {
             string query = @"SELECT 

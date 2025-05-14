@@ -80,6 +80,12 @@ namespace BookHub.Service
             return _livroRepository.ObterTodosLivros();
         }
 
+        public List<Livro> ObterUltimosAdicionados()
+        {
+            return _livroRepository.ObterUltimosAdicionados();
+        }
+
+
         public Livro BuscarLivroPorTitulo(string titulo)
         {
             return _livroRepository.BuscarLivroPorTitulo(titulo);

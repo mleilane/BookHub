@@ -43,11 +43,13 @@
             lblTotal = new Label();
             lblLidos = new Label();
             lblTotalAcervo = new Label();
-            dataGridView1 = new DataGridView();
+            dgvUltimosAdicionados = new DataGridView();
             Título = new DataGridViewTextBoxColumn();
             Autor = new DataGridViewTextBoxColumn();
             ISBN = new DataGridViewTextBoxColumn();
+            Quantidade = new DataGridViewTextBoxColumn();
             Lido = new DataGridViewTextBoxColumn();
+            Data_de_Registro = new DataGridViewTextBoxColumn();
             grpMenuAcervo = new GroupBox();
             btnAcervoCompleto = new Button();
             btnPaginaInicial = new Button();
@@ -62,7 +64,7 @@
             pnlLidos.SuspendLayout();
             pnlNaoLidos.SuspendLayout();
             pnlTotal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUltimosAdicionados).BeginInit();
             grpMenuAcervo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -87,7 +89,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.DarkSlateGray;
-            lblTitulo.Location = new Point(618, 56);
+            lblTitulo.Location = new Point(618, 47);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(285, 36);
             lblTitulo.TabIndex = 18;
@@ -200,22 +202,24 @@
             lblTotalAcervo.TabIndex = 25;
             lblTotalAcervo.Text = "Total Acervo";
             // 
-            // dataGridView1
+            // dgvUltimosAdicionados
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToOrderColumns = true;
+            dgvUltimosAdicionados.AllowUserToAddRows = false;
+            dgvUltimosAdicionados.AllowUserToDeleteRows = false;
+            dgvUltimosAdicionados.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 192);
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Título, Autor, ISBN, Lido });
-            dataGridView1.Location = new Point(27, 40);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1135, 271);
-            dataGridView1.TabIndex = 26;
+            dgvUltimosAdicionados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvUltimosAdicionados.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            dgvUltimosAdicionados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUltimosAdicionados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUltimosAdicionados.Columns.AddRange(new DataGridViewColumn[] { Título, Autor, ISBN, Quantidade, Lido, Data_de_Registro });
+            dgvUltimosAdicionados.Location = new Point(27, 40);
+            dgvUltimosAdicionados.Name = "dgvUltimosAdicionados";
+            dgvUltimosAdicionados.ReadOnly = true;
+            dgvUltimosAdicionados.RowHeadersVisible = false;
+            dgvUltimosAdicionados.RowHeadersWidth = 51;
+            dgvUltimosAdicionados.Size = new Size(1135, 271);
+            dgvUltimosAdicionados.TabIndex = 26;
             // 
             // Título
             // 
@@ -238,12 +242,26 @@
             ISBN.Name = "ISBN";
             ISBN.ReadOnly = true;
             // 
+            // Quantidade
+            // 
+            Quantidade.HeaderText = "Quantidade";
+            Quantidade.MinimumWidth = 6;
+            Quantidade.Name = "Quantidade";
+            Quantidade.ReadOnly = true;
+            // 
             // Lido
             // 
             Lido.HeaderText = "Lido";
             Lido.MinimumWidth = 6;
             Lido.Name = "Lido";
             Lido.ReadOnly = true;
+            // 
+            // Data_de_Registro
+            // 
+            Data_de_Registro.HeaderText = "Data de Registro";
+            Data_de_Registro.MinimumWidth = 6;
+            Data_de_Registro.Name = "Data_de_Registro";
+            Data_de_Registro.ReadOnly = true;
             // 
             // grpMenuAcervo
             // 
@@ -252,7 +270,7 @@
             grpMenuAcervo.Controls.Add(btnAddLivro);
             grpMenuAcervo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grpMenuAcervo.ForeColor = Color.DarkSlateGray;
-            grpMenuAcervo.Location = new Point(26, 501);
+            grpMenuAcervo.Location = new Point(26, 469);
             grpMenuAcervo.Name = "grpMenuAcervo";
             grpMenuAcervo.Size = new Size(235, 331);
             grpMenuAcervo.TabIndex = 42;
@@ -282,7 +300,7 @@
             btnPaginaInicial.ForeColor = SystemColors.Control;
             btnPaginaInicial.Image = Properties.Resources.home;
             btnPaginaInicial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPaginaInicial.Location = new Point(14, 85);
+            btnPaginaInicial.Location = new Point(14, 64);
             btnPaginaInicial.Name = "btnPaginaInicial";
             btnPaginaInicial.Padding = new Padding(8, 0, 0, 0);
             btnPaginaInicial.Size = new Size(206, 45);
@@ -298,7 +316,7 @@
             btnAddLivro.ForeColor = SystemColors.Control;
             btnAddLivro.Image = Properties.Resources.addLivro;
             btnAddLivro.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddLivro.Location = new Point(14, 161);
+            btnAddLivro.Location = new Point(14, 152);
             btnAddLivro.Name = "btnAddLivro";
             btnAddLivro.Padding = new Padding(8, 0, 0, 0);
             btnAddLivro.Size = new Size(206, 45);
@@ -339,6 +357,7 @@
             // 
             // grpEstatisticaAcervo
             // 
+            grpEstatisticaAcervo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             grpEstatisticaAcervo.Controls.Add(lblPercLidos);
             grpEstatisticaAcervo.Controls.Add(pictureBox4);
             grpEstatisticaAcervo.Controls.Add(lblPercNaoLidos);
@@ -352,19 +371,20 @@
             grpEstatisticaAcervo.Controls.Add(pnlLidos);
             grpEstatisticaAcervo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grpEstatisticaAcervo.ForeColor = Color.DarkSlateGray;
-            grpEstatisticaAcervo.Location = new Point(297, 133);
+            grpEstatisticaAcervo.Location = new Point(289, 133);
             grpEstatisticaAcervo.Name = "grpEstatisticaAcervo";
             grpEstatisticaAcervo.Size = new Size(1184, 295);
             grpEstatisticaAcervo.TabIndex = 46;
             grpEstatisticaAcervo.TabStop = false;
-            grpEstatisticaAcervo.Text = "Estatísticas do Acervo";
+            grpEstatisticaAcervo.Text = "Indicadores de Leitura";
             // 
             // grpNovidades
             // 
-            grpNovidades.Controls.Add(dataGridView1);
+            grpNovidades.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            grpNovidades.Controls.Add(dgvUltimosAdicionados);
             grpNovidades.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grpNovidades.ForeColor = Color.DarkSlateGray;
-            grpNovidades.Location = new Point(297, 501);
+            grpNovidades.Location = new Point(289, 468);
             grpNovidades.Name = "grpNovidades";
             grpNovidades.Size = new Size(1184, 331);
             grpNovidades.TabIndex = 47;
@@ -378,9 +398,9 @@
             groupBox4.Controls.Add(grpEstatisticaAcervo);
             groupBox4.Controls.Add(grpMenuAcervo);
             groupBox4.Controls.Add(pictureBox1);
-            groupBox4.Location = new Point(-6, -36);
+            groupBox4.Location = new Point(0, -17);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1502, 861);
+            groupBox4.Size = new Size(1494, 846);
             groupBox4.TabIndex = 48;
             groupBox4.TabStop = false;
             groupBox4.Text = " ";
@@ -392,6 +412,7 @@
             ClientSize = new Size(1494, 829);
             Controls.Add(groupBox4);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmResumoAcervo";
             Text = "Resumo do Acervo";
             Load += FrmResumoAcervo_Load;
@@ -402,7 +423,7 @@
             pnlNaoLidos.PerformLayout();
             pnlTotal.ResumeLayout(false);
             pnlTotal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUltimosAdicionados).EndInit();
             grpMenuAcervo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -428,11 +449,7 @@
         private Label lblLidos;
         private Label lblNaoLidos;
         private Label lblTotalAcervo;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Título;
-        private DataGridViewTextBoxColumn Autor;
-        private DataGridViewTextBoxColumn ISBN;
-        private DataGridViewTextBoxColumn Lido;
+        private DataGridView dgvUltimosAdicionados;
         private GroupBox grpMenuAcervo;
         private Button btnAcervoCompleto;
         private Button btnPaginaInicial;
@@ -448,5 +465,11 @@
         private Label lblPercNaoLidos;
         private Label lblQtdNaoLidos;
         private Label lblTotal;
+        private DataGridViewTextBoxColumn Título;
+        private DataGridViewTextBoxColumn Autor;
+        private DataGridViewTextBoxColumn ISBN;
+        private DataGridViewTextBoxColumn Quantidade;
+        private DataGridViewTextBoxColumn Lido;
+        private DataGridViewTextBoxColumn Data_de_Registro;
     }
 }

@@ -129,6 +129,7 @@
             Controls.Add(txtLogin);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Logar no Sistema";

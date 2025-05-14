@@ -84,6 +84,8 @@ namespace BookHub.Forms
             dgvTodosLivros.Columns["Lido"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvTodosLivros.Columns["Data_de_Registro"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            dgvTodosLivros.Columns["Título"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells; //deixa a coluna com autoajuste 
+
         }
 
         private void LimparCamposBusca()
@@ -269,7 +271,7 @@ namespace BookHub.Forms
                 Autor = txtAutor.Text.Trim(),
                 ISBN = txtIsbn.Text.Trim(),
                 Quantidade = livroSelecionado.Quantidade,
-                Lido = livroSelecionado.Lido
+                Lido = rbtnSim.Checked
 
             };
 

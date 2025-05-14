@@ -26,6 +26,11 @@ namespace BookHub.Controller
             return _livroService.ObterTodosLivros();
         }
 
+        public List<Livro> ObterUltimosAdicionados()
+        {
+            return _livroService.ObterUltimosAdicionados();
+        }
+
         public (int total, int lidos, int naoLidos, double percLidos, double percNaoLidos) ObterResumoAcervo()
         {
             return _livroService.ObterResumoAcervo();

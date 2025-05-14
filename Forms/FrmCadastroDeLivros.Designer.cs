@@ -405,6 +405,7 @@
             Controls.Add(txtAutorAddLivro);
             Controls.Add(txtTituloAddLivro);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmCadastroDeLivros";
             ResumeLayout(false);
             PerformLayout();
