@@ -19,7 +19,6 @@ namespace BookHub.Forms
             InitializeComponent();
         }
 
-
         private void btnAddLivro_Click(object sender, EventArgs e)
         {
             var novoLivro = new Livro

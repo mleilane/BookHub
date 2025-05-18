@@ -21,16 +21,16 @@ namespace BookHub.Controller
     {
         private readonly UsuarioService _usuarioService;
 
-        #region ..:: Construtor ::..
+        #region ..:: CONSTRUTOR E DEPENDÊNCIAS ::..
 
         public UsuarioController()
         {
             _usuarioService = new UsuarioService();
         }
 
-        #endregion ..:: Construtor ::..
+        #endregion 
 
-        #region ..:: Metodos - Cadastro e Login ::..
+        #region ..:: MÉTODOS - CADASTRO E LOGIN ::..
 
         /// <summary>
         /// Esse metodo realiza o cadastro de usuários com os dados fornecidos 
@@ -74,7 +74,7 @@ namespace BookHub.Controller
                 // Cria uma instância da Service para chamar a lógica de login
                 UsuarioService service = new UsuarioService();
 
-                // Chama o método LoginUsuario na Service para validar o login
+                // Chama LoginUsuario na Service para validar o login
                 service.LoginUsuario(usuario);
 
                 // Se não lançar exceção, o login foi bem-sucedido
@@ -91,10 +91,10 @@ namespace BookHub.Controller
                 return false; 
             }
         }
+
         #endregion 
 
-
-        #region ..:: Metodos - Login Automático ::..
+        #region ..:: MÉTODOS - LOGIN AUTOMATICO ::..
 
         //verifica se tem login salvo
         public int? VerificarLoginAutomatico()
@@ -120,6 +120,7 @@ namespace BookHub.Controller
         {
             return _usuarioService.BuscarUsuarioLembrado(idUsuario);
         }
+
         #endregion
     }
 }

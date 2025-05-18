@@ -16,6 +16,8 @@ namespace BookHub.Forms
     {
         private readonly LivroController _livroController = new LivroController();
 
+        #region ..:: CONSTRUTOR ::..
+
         public FrmResumoAcervo()
         {
             InitializeComponent();
@@ -23,7 +25,9 @@ namespace BookHub.Forms
             CarregarLivrosResumoAcervo();
 
         }
+        #endregion
 
+        #region ..:: MÉTODOS ::..
         private void CarregarLivrosResumoAcervo()
         {
             LivroController livroController = new LivroController();
@@ -44,9 +48,7 @@ namespace BookHub.Forms
             }
         }
 
-
-        // Método de configuração do DataGridView
-        private void ConfigurarDgvUltimosAdicionados()
+        private void ConfigurarDgvUltimosAdicionados()// Método de configuração do DataGridView
         {
             dgvUltimosAdicionados.EnableHeadersVisualStyles = false; //desabilita o estilo padrão
 
@@ -65,7 +67,7 @@ namespace BookHub.Forms
             //celulas
             dgvUltimosAdicionados.ClearSelection();  // Remove a seleção inicial da celula 
             dgvUltimosAdicionados.CurrentCell = null; // Remove o foco visual
-            dgvUltimosAdicionados.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Define seleção por linha inteira
+            //dgvUltimosAdicionados.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Define seleção por linha inteira
             dgvUltimosAdicionados.MultiSelect = false; // Impede múltiplas seleções
             dgvUltimosAdicionados.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 8.75F, FontStyle.Regular); //tamanho e espessura fonte 
             dgvUltimosAdicionados.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray; // cor de fundo em linhas alternadas
@@ -76,15 +78,16 @@ namespace BookHub.Forms
             dgvUltimosAdicionados.Columns["Quantidade"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvUltimosAdicionados.Columns["Lido"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvUltimosAdicionados.Columns["Data_de_Registro"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvUltimosAdicionados.SelectionMode = DataGridViewSelectionMode.CellSelect; // Impede seleção de linha
 
             dgvUltimosAdicionados.Columns["Título"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells; //deixa a coluna com autoajuste 
 
-
         }
 
+        #endregion
 
+        #region ..:: EVENTOS ::..
 
-        //eventos 
         private void btnPaginaInicial_Click(object sender, EventArgs e)
         {
             //verifica se já existe uma instancia da TelaInicial aberta 
@@ -150,6 +153,7 @@ namespace BookHub.Forms
             lblPercNaoLidos.Text = $"{resumo.percNaoLidos:F0}%";
         }
 
+        #endregion
         
     }
 }

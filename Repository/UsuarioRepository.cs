@@ -18,7 +18,7 @@ namespace BookHub.Repository
         /// <param name="usuario"></param>
         /// <returns></returns>
 
-        #region ..:: Metodos - Cadastro e Login ::..
+        #region ..:: MÉTODOS - CADASTRO E LOGIN ::..
 
         /// <summary>
         /// Cadastra um novo usuário no banco de dados.
@@ -108,7 +108,7 @@ namespace BookHub.Repository
         }
         #endregion 
 
-        #region ..:: Metodos - Login Automatico::..
+        #region ..:: MÉTODOS - LOGIN AUTOMATICO::..
 
 
         //Verifica se o usuario ja salvou login nesse dispositivo 
@@ -138,9 +138,7 @@ namespace BookHub.Repository
             }
         }
 
-
-        //Salva login automatico 
-        public void SalvarLoginAutomatico(int idUsuario, string dispositivo)
+        public void SalvarLoginAutomatico(int idUsuario, string dispositivo) //Salva login automatico 
         {
 
             if (ObterUsuarioPorDispositivo(dispositivo).HasValue)
@@ -188,7 +186,6 @@ namespace BookHub.Repository
             }
         }
 
-
         public Usuario BuscarUsuarioLembrado(int idUsuario)
         {
             const string query = @"
@@ -223,6 +220,7 @@ namespace BookHub.Repository
 
             return null;
         }
+
         #endregion
     }
 }

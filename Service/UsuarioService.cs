@@ -19,7 +19,7 @@ namespace BookHub.Service
     {
         private readonly UsuarioRepository _usuarioRepository;
 
-        #region ..:: Construtor ::..
+        #region ..:: CONSTRUTOR E DEPENDÊNCIAS ::..
 
         public UsuarioService()
         {
@@ -28,7 +28,7 @@ namespace BookHub.Service
 
         #endregion 
 
-        #region ..:: Métodos - Cadastro e Login ::..
+        #region ..:: MÉTODOS - CADASTRO E LOGIN ::..
 
         /// <summary>
         /// Realiza o cadastro do usuário no sistema
@@ -58,7 +58,6 @@ namespace BookHub.Service
 
             _usuarioRepository.CadastrarUsuario(usuario);
         }
-
 
         private string HashSenha(string senha)
         {
@@ -103,7 +102,7 @@ namespace BookHub.Service
 
         #endregion
 
-        #region ..:: Métodos - Login Automatico ::..
+        #region ..:: MÉTODOS - LOGIN AUTOMATICO ::..
 
         //verifica se ja tem login salvo
         public int? VerificarLoginAutomatico()// int? = numero inteiro ou nada
@@ -131,7 +130,6 @@ namespace BookHub.Service
         {
             return _usuarioRepository.ObterIdUsuarioPorLogin(login);
         }
-
 
         public Usuario BuscarUsuarioLembrado(int idUsuario)
         {

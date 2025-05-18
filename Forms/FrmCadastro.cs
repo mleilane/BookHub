@@ -16,16 +16,16 @@ namespace BookHub.Forms
         private UsuarioController _usuarioController;
 
 
-        #region ..:: Construtor ::..
+        #region ..:: CONSTRUTOR ::..
         public FrmCadastro()
         {
             InitializeComponent();
             _usuarioController = new UsuarioController();
 
         }
-        #endregion ..:: Construtor ::..
+        #endregion
 
-        #region ..:: Eventos ::..
+        #region ..:: EVENTOS ::..
 
         private void btnCadastrarUser_Click_1(object sender, EventArgs e)
         {
@@ -81,6 +81,6 @@ namespace BookHub.Forms
             }
         }
 
-        #endregion ..:: Eventos ::..
+        #endregion 
     }
 }

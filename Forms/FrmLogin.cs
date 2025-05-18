@@ -16,7 +16,7 @@ namespace BookHub.Forms
 {
     public partial class FrmLogin : Form
     {
-        #region ..:: Construtor ::..
+        #region ..:: CONSTRUTOR ::..
         public FrmLogin()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace BookHub.Forms
 
         #endregion
 
-        #region ..:: Eventos ::..
+        #region ..:: EVENTOS ::..
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
@@ -60,8 +60,6 @@ namespace BookHub.Forms
                 txtLogin.Text = usuarioLembrado.Login;
                 // txtSenha.Text = usuarioLembrado.Senha;
                 chkLembrarMe.Checked = true;
-
-                
             }
         }
 
@@ -73,8 +71,6 @@ namespace BookHub.Forms
                 string loginUsuario = txtLogin.Text;
                 string senhaUsuario = txtSenha.Text;
                 bool lembrarLogin = chkLembrarMe.Checked;
-
-               
 
                 // Valida se os campos estão preenchidos
                 if (string.IsNullOrWhiteSpace(loginUsuario) || string.IsNullOrWhiteSpace(senhaUsuario))
@@ -89,7 +85,7 @@ namespace BookHub.Forms
 
                 UsuarioController usuarioController = new UsuarioController();  // instância de UsuarioController para realizar o login
 
-                // Cria objeto com os do login digitado
+                // Cria objeto com os dados digitado
                 Usuario usuarioObj = new Usuario
                 {
                     Login = loginUsuario,

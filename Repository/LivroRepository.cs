@@ -67,7 +67,7 @@ namespace BookHub.Repository
             return rows > 0;
         }
 
-        #endregion ..:: C (CREATE) - CRIAR ::..
+        #endregion 
 
 
         #region ..:: R (READ) - LER ::..
@@ -127,13 +127,11 @@ namespace BookHub.Repository
                           FROM Livros
                           ORDER BY DATA_DE_REGISTRO DESC";
 
-            // Executa a consulta e retorna um SqlDataReader para ler os resultados
+            
             using (var reader = DatabaseHelper.ExecuteReader(query))
             {
-                // Lê cada linha de resultado da consulta
                 while (reader.Read())
                 {
-                    // Cria um novo objeto Livro e preenche com os dados da linha lida
                     Livro livro = new Livro
                     {
                         Id = Convert.ToInt32(reader["Id"]),
@@ -152,7 +150,6 @@ namespace BookHub.Repository
 
             return livros;
         }
-
 
         public Livro BuscarLivroPorTitulo(string titulo)
         {
@@ -173,7 +170,6 @@ namespace BookHub.Repository
                 { "@Titulo", titulo }
             };
 
-            // Executa a consulta e retorna um SqlDataReader para ler o resultado
             using (var reader = DatabaseHelper.ExecuteReader(query, parameters))
             {
                 if (reader.Read()) // Verifica se o livro foi encontrado
@@ -219,7 +215,7 @@ namespace BookHub.Repository
             {
                 if (reader.Read()) // Verifica se o livro foi encontrado
                 {
-                    // Cria e retorna o livro com os dados recuperados da consulta
+                    
                     return new Livro
                     {
                         Id = Convert.ToInt32(reader["Id"]),
@@ -233,7 +229,7 @@ namespace BookHub.Repository
                 }
             }
 
-            return null; // Retorna null caso o livro não seja encontrado
+            return null; 
         }
 
         public Livro BuscarLivroPorAutor(string autor)
@@ -255,7 +251,7 @@ namespace BookHub.Repository
                 { "@Autor", autor }
             };
 
-            // Executa a consulta e retorna um SqlDataReader para ler o resultado
+            
             using (var reader = DatabaseHelper.ExecuteReader(query, parameters))
             {
                 if (reader.Read()) // Verifica se o livro foi encontrado
@@ -276,7 +272,6 @@ namespace BookHub.Repository
 
             return null; // Retorna null caso o livro não seja encontrado
         }
-
 
         public Livro BuscarLivroPorId(int id)
         {
@@ -316,10 +311,10 @@ namespace BookHub.Repository
                 }
             }
 
-            return null; // Retorna null caso o livro não seja encontrado
+            return null; 
         }
 
-        #endregion ..:: R (READ) - LER ::..
+        #endregion 
 
 
         #region ..:: U (UPDATE) - ATUALIZAR ::..
@@ -350,7 +345,7 @@ namespace BookHub.Repository
             return rows > 0;
         }
 
-        #endregion ..:: U (UPDATE) - ATUALIZAR ::..
+        #endregion
 
 
         #region ..:: D (DELETE) - EXCLUIR ::..
@@ -372,7 +367,7 @@ namespace BookHub.Repository
 
         }
 
-        #endregion ..:: D (DELETE) - EXCLUIR ::..
+        #endregion 
 
     }
 }

@@ -27,7 +27,6 @@ namespace BookHub.Forms
 
         }
 
-
         #region ..:: METODOS ::..
 
 
@@ -52,8 +51,7 @@ namespace BookHub.Forms
             }
         }
 
-        // Método de configuração do DataGridView
-        private void ConfigurarDgvTodosLivros()
+        private void ConfigurarDgvTodosLivros() // Método de configuração do DataGridView
         {
             dgvTodosLivros.EnableHeadersVisualStyles = false; //desabilita o estilo padrão
 
@@ -98,7 +96,7 @@ namespace BookHub.Forms
             rbtnNao.Checked = false;
         }
 
-        #endregion ..:: 
+        #endregion 
 
         #region ..:: EVENTOS ::..
 
@@ -224,7 +222,6 @@ namespace BookHub.Forms
             livroSelecionado = null; // Remove referência ao livro que estava selecionado
         }
 
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
 
@@ -260,7 +257,6 @@ namespace BookHub.Forms
             }
         }
 
-
         private void btnSalvar_Click_1(object sender, EventArgs e)
         {
             //pegando os dados da tela 
@@ -277,17 +273,13 @@ namespace BookHub.Forms
 
             bool sucesso = controller.AtualizaLivro(livroAtualizado);
 
-            // Recarrega a lista de livros na grid
-            CarregarLivros();
-
-            // Limpa os campos de pesquisa
-            LimparCamposBusca();
-
-            // Limpa a seleção do DataGridView
-            dgvTodosLivros.ClearSelection();
+            
+            CarregarLivros(); // Recarrega a lista de livros na grid
+            
+            LimparCamposBusca(); // Limpa os campos de pesquisa
+            
+            dgvTodosLivros.ClearSelection(); // Limpa a seleção do DataGridView
         }
-
-
 
         private void dgvTodosLivros_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {

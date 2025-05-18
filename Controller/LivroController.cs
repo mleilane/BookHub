@@ -14,28 +14,16 @@ namespace BookHub.Controller
     {
         private readonly LivroService _livroService;
 
+        #region ..:: CONSTRUTOR E DEPENDÊNCIAS ::..
+
         // Construtor adicionando a inicialização de _livroService
         public LivroController()
         {
             _livroService = new LivroService();
         }
+        #endregion
 
-
-        public List<Livro> ObterTodosLivros()
-        {
-            return _livroService.ObterTodosLivros();
-        }
-
-        public List<Livro> ObterUltimosAdicionados()
-        {
-            return _livroService.ObterUltimosAdicionados();
-        }
-
-        public (int total, int lidos, int naoLidos, double percLidos, double percNaoLidos) ObterResumoAcervo()
-        {
-            return _livroService.ObterResumoAcervo();
-        }
-
+        #region ..:: OPERAÇÕES CRUD ::..
 
         public bool CadastrarLivro(Livro livro)
         {
@@ -76,34 +64,12 @@ namespace BookHub.Controller
             return false;
         }
 
-
-        public Livro BuscarLivroPorTitulo(string titulo)
-        {
-            return _livroService.BuscarLivroPorTitulo(titulo);
-        }
-
-        public Livro BuscarLivroPorIsbn(string isbn)
-        {
-            return _livroService.BuscarLivroPorIsbn(isbn);
-        }
-
-        public Livro BuscarLivroPorAutor(string autor)
-        {
-            return _livroService.BuscarLivroPorAutor(autor);
-        }
-
-        public Livro BuscarLivroPorId(int id)
-        {
-            return _livroService.BuscarLivroPorId(id);
-        }
-
-
         public bool AtualizaLivro(Livro livroAtualizado)
         {
             //busca o livro original no banco 
             Livro livroOriginal = _livroService.BuscarLivroPorId(livroAtualizado.Id);
 
-            if(livroOriginal == null) 
+            if (livroOriginal == null)
             {
                 // Livro não encontrado
                 MessageBox.Show(
@@ -119,15 +85,15 @@ namespace BookHub.Controller
             //verifica se houve alguma alteração 
             bool alterado = false;
 
-            if(livroAtualizado.Titulo != livroOriginal.Titulo)
+            if (livroAtualizado.Titulo != livroOriginal.Titulo)
             {
                 alterado = true;
             }
-            if(livroAtualizado.Autor != livroOriginal.Autor)
+            if (livroAtualizado.Autor != livroOriginal.Autor)
             {
                 alterado = true;
             }
-            if(livroAtualizado.ISBN != livroOriginal.ISBN)
+            if (livroAtualizado.ISBN != livroOriginal.ISBN)
             {
                 alterado = true;
             }
@@ -151,7 +117,7 @@ namespace BookHub.Controller
                 );
                 return false;
             }
-            
+
 
             // Se teve alteração, atualizar
             bool sucesso = _livroService.AtualizaLivro(livroAtualizado);
@@ -178,7 +144,6 @@ namespace BookHub.Controller
             return sucesso;
 
         }
-
 
         public bool ExcluirLivro(int id)
         {
@@ -217,6 +182,48 @@ namespace BookHub.Controller
 
             return false;
         }
+
+        #endregion
+
+        #region ..:: CONSULTAS ::..
+
+        public List<Livro> ObterTodosLivros()
+        {
+            return _livroService.ObterTodosLivros();
+        }
+
+        public List<Livro> ObterUltimosAdicionados()
+        {
+            return _livroService.ObterUltimosAdicionados();
+        }
+  
+        public Livro BuscarLivroPorTitulo(string titulo)
+        {
+            return _livroService.BuscarLivroPorTitulo(titulo);
+        }
+
+        public Livro BuscarLivroPorIsbn(string isbn)
+        {
+            return _livroService.BuscarLivroPorIsbn(isbn);
+        }
+
+        public Livro BuscarLivroPorAutor(string autor)
+        {
+            return _livroService.BuscarLivroPorAutor(autor);
+        }
+
+        public Livro BuscarLivroPorId(int id)
+        {
+            return _livroService.BuscarLivroPorId(id);
+        }
+
+        public (int total, int lidos, int naoLidos, double percLidos, double percNaoLidos) ObterResumoAcervo()
+        {
+            return _livroService.ObterResumoAcervo();
+        }
+
+        #endregion
+
     }
 }
 

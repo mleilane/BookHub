@@ -21,11 +21,13 @@ namespace BookHub.Service
     {
         private LivroRepository _livroRepository;
 
-
+        #region ..:: CONSTRUTOR E DEPENDÊNCIAS ::..
         public LivroService()
         {
             _livroRepository = new LivroRepository();
         }
+
+        #endregion
 
         #region ..:: C (CREATE) - CRIAR ::..
 
@@ -65,12 +67,10 @@ namespace BookHub.Service
                 return ResultadoCadastro.Erro;
             }
 
-
-
         }
 
 
-        #endregion ..:: C (CREATE) - CRIAR ::..
+        #endregion
 
 
         #region ..:: R (READ) - LER ::..
@@ -139,7 +139,7 @@ namespace BookHub.Service
         }
 
 
-        #endregion ..:: R (READ) - LER ::..
+        #endregion 
 
 
         #region ..:: U (UPDATE) - ATUALIZAR ::..
@@ -150,7 +150,7 @@ namespace BookHub.Service
             return _livroRepository.AtualizarLivro(livro);
         }
 
-        #endregion ..:: U (UPDATE) - ATUALIZAR ::..
+        #endregion 
 
 
         #region ..:: D (DELETE) - EXCLUIR ::..
