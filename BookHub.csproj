@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>bookshelf_icon-icons.com_54414.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,10 @@
 
   <ItemGroup>
     <Compile Remove="Models\CryptoHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bookshelf_icon-icons.com_54414.ico" />
   </ItemGroup>
 
   <ItemGroup>
